@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="ACC_T003_esb_receiver" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ESB_RECEIVERBinding" type="wsdl" bindingName="{http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER}ESB_RECEIVERBinding" soapVersion="1_1" anonymous="optional" definition="http://ams-ivptest:8093/orawsv/ESBMGR/ESB_RECEIVER?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://ams-ivptest:8092/orawsv/ESBMGR/ESB_RECEIVER?wsdl"><con:part><con:url>http://ams-ivptest:8092/orawsv/ESBMGR/ESB_RECEIVER?wsdl</con:url><con:content><![CDATA[<definitions name="ESB_RECEIVER" targetNamespace="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema targetNamespace="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER" elementFormDefault="qualified">
+      <xsd:element name="ESB_RECEIVERInput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="P_RESPONSE-XMLTYPE-OUT">
+              <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="P_MESSAGE-XMLTYPE-IN">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:any/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ESB_RECEIVEROutput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="P_RESPONSE">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:any/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="ESB_RECEIVERInputMessage">
+    <part name="parameters" element="tns:ESB_RECEIVERInput"/>
+  </message>
+  <message name="ESB_RECEIVEROutputMessage">
+    <part name="parameters" element="tns:ESB_RECEIVEROutput"/>
+  </message>
+  <portType name="ESB_RECEIVERPortType">
+    <operation name="ESB_RECEIVER">
+      <input message="tns:ESB_RECEIVERInputMessage"/>
+      <output message="tns:ESB_RECEIVEROutputMessage"/>
+    </operation>
+  </portType>
+  <binding name="ESB_RECEIVERBinding" type="tns:ESB_RECEIVERPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ESB_RECEIVER">
+      <soap:operation soapAction="ESB_RECEIVER"/>
+      <input>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ESB_RECEIVERService">
+    <documentation>Oracle Web Service</documentation>
+    <port name="ESB_RECEIVERPort" binding="tns:ESB_RECEIVERBinding">
+      <soap:address location="http://ams-ivptest:8092/orawsv/ESBMGR/ESB_RECEIVER"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://ams-ivptest:8093/orawsv/ESBMGR/ESB_RECEIVER</con:endpoint></con:endpoints><con:operation isOneWay="false" action="ESB_RECEIVER" name="ESB_RECEIVER" bindingOperationName="ESB_RECEIVER" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Basic ZXNidXNyOnQwMDI=" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ams-ivptest:8093/orawsv/ESBMGR/ESB_RECEIVER</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:esb="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <esb:ESB_RECEIVERInput>
+         <esb:P_RESPONSE-XMLTYPE-OUT/>
+         <esb:P_MESSAGE-XMLTYPE-IN>
+<notificationOnUpdate version="V2.3" source="MCD">
+    <changes>
+        <outlet version="V2.3">
+            <outletId>OID-00000-001000</outletId>
+            <meta>
+                <version>1</version>
+                <validFrom>2013-11-29T11:19:39Z</validFrom>
+                <validTo/>
+                <schemaVersion>V2.3</schemaVersion>
+            </meta>
+            <account>
+                <number>14820222</number>
+            </account>
+            <name aid="AID-00000-001006">
+                <business>Quickresult BV Credit Management Services</business>
+                <print>
+                    <name1/>
+                    <name2>Quickresult BV Credit Management Services</name2>
+                    <name3/>
+                    <name4/>
+                </print>
+                <sort>QUICKRESULT CREDIT MANAGEMENT SERVICES</sort>
+                <full>Quickresult BV Credit Management Services</full>
+                <quality>
+                    <dataHash>e6d78b1797731c43168055113811f780</dataHash>
+                </quality>
+            </name>
+            <address aid="AID-00000-001007"><streetName>Baronieweg</streetName><houseNumber>7</houseNumber><houseNumberAddition>B</houseNumberAddition><postalcode>5321JV</postalcode><locality>HEDEL</locality><residenceName/><country>NLD</country><premise>13815507</premise><full>Baronieweg 7 B 5321JV HEDEL</full><quality><dataHash>57857733a8fd2000ab22e22d7d69b831</dataHash></quality></address>
+            <telecom aid="AID-00000-001008">
+                <countryCode/>
+                <areaCode>073</areaCode>
+                <connectionNumber>6408580</connectionNumber>
+                <nameNumber/>
+                <extensionNumber/>
+                <rate/>
+                <full>(073) 6408580</full>
+                <context>
+                    <type>phone</type>
+                </context>
+                <quality>
+                    <dataHash>009a55eb93119b59e10c8a81fb562c5a</dataHash>
+                </quality>
+            </telecom>
+        </outlet>
+    </changes>
+</notificationOnUpdate>
+         </esb:P_MESSAGE-XMLTYPE-IN>
+      </esb:ESB_RECEIVERInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="ESB_RECEIVER"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

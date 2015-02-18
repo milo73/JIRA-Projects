@@ -1,0 +1,19 @@
+{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "DTGESB-3456"
+        },
+        "summary": "Sub-task of DTGESB-2936",
+        "description": "Don't forget to do this too.",
+        "issuetype":
+        {
+            "id": "5"
+        }
+    }
+}

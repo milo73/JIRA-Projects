@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="EDU ESB WebService" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="esbWebServiceSoapBinding" type="wsdl" bindingName="{http://schema.dtg.nl/esb_webservice/wsdl/1.1}esbWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://dtgejbfcrm01:8092/esbWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dtgtjbfcrm01:8092/esbWebService?wsdl"><con:part><con:url>http://dtgtjbfcrm01:8092/esbWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+      <simpleType name="CompletionStatusCode">
+        <restriction base="xsd:string">
+          <enumeration value="OK"/>
+          <enumeration value="ERROR"/>
+        </restriction>
+      </simpleType>
+      <element name="WebServiceInvocationResult">
+        <complexType>
+          <sequence>
+            <element name="code" type="wns:CompletionStatusCode"/>
+            <element name="message" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="xml" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="postEsbMessageRequest">
+    <wsdl:part element="wns:xml" name="postEsbMessageRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageResponse">
+    <wsdl:part element="wns:WebServiceInvocationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="esbWebService">
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input message="wns:postEsbMessageRequest"></wsdl:input>
+      <wsdl:output message="wns:postEsbMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="esbWebServiceSoapBinding" type="wns:esbWebService">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input name="postEsbMessageRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEsbMessageResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="esb-web-service">
+    <wsdl:port binding="wns:esbWebServiceSoapBinding" name="esb-port">
+      <wsdlsoap:address location="http://dtgtjbfcrm01:8092/esbWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dtgajbfcrm01:8092/esbWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="postEsbMessage" bindingOperationName="postEsbMessage" type="Request-Response" outputName="postEsbMessageResponse" inputName="postEsbMessageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="RFV"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgejbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForValidation source="CRM" version="V2.2">
+<outlet version="V2.3">
+    <outletId>OID-00000-009121</outletId>
+    <meta>
+        <version>2</version>
+        <validFrom>2014-02-26T13:27:03Z</validFrom>
+        <validTo/>
+        <schemaVersion>V2.3</schemaVersion>
+    </meta>
+    <source>
+        <system>MBS</system>
+    </source>
+    <account>
+        <number>63322803</number>
+    </account>
+    <name aid="AID-00000-089074">
+        <business>Agro Internet</business>
+        <print>
+            <name1/>
+            <name2>Agro Internet</name2>
+            <name3/>
+            <name4/>
+        </print>
+        <sort>AGRO INTERNET</sort>
+        <full>Agro Internet</full>
+        <derived>
+            <type>business</type>
+        </derived>
+        <quality>
+            <dataHash>2ec0577704f59052258ea6ac4f23043a</dataHash>
+        </quality>
+    </name>
+    <address aid="AID-00000-089075"><streetName>Huis te Landelaan</streetName><houseNumber>29</houseNumber><houseNumberAddition/><postalcode>2283SE</postalcode><locality>RIJSWIJK ZH</locality><residenceName/><country>NLD</country><premise>2344716</premise><full>Huis te Landelaan 29  2283SE RIJSWIJK ZH</full><derived><type>location</type></derived><quality><dataHash>9097c8afec696f63eab0390e2a51876a</dataHash></quality></address>
+    <telecom aid="AID-00000-089076">
+        <countryCode>31</countryCode>
+        <areaCode>06</areaCode>
+        <connectionNumber>22864976</connectionNumber>
+        <nameNumber/>
+        <extensionNumber/>
+        <rate/>
+        <full>06-22864977</full>
+        <context>
+            <type>phone</type>
+        </context>
+        <derived>
+            <type>mobile</type>
+        </derived>
+        <quality>
+            <dataHash>fb4de9eb658c0693df9ae4d05a41d236</dataHash>
+        </quality>
+    </telecom>
+</outlet>
+
+</requestForValidation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgejbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+    <account>
+      <number>63322803</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgejbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForUpdate source="CRM" version="V2.3">
+ <outlet version="V2.3">
+    <outletId>OID-00000-009121</outletId>
+    <meta>
+        <version>2</version>
+        <validFrom>2014-02-26T13:35:19Z</validFrom>
+        <validTo/>
+        <schemaVersion>V2.3</schemaVersion>
+    </meta>
+    <source>
+        <system>MBS</system>
+    </source>
+    <account>
+        <number>63322803</number>
+    </account>
+    <name aid="AID-00000-089074">
+        <business>Agro Internet</business>
+        <print>
+            <name1/>
+            <name2>Agro Internet</name2>
+            <name3/>
+            <name4/>
+        </print>
+        <sort>AGRO INTERNET</sort>
+        <full>Agro Internet</full>
+        <derived>
+            <type>business</type>
+        </derived>
+        <quality>
+            <dataHash>2ec0577704f59052258ea6ac4f23043a</dataHash>
+        </quality>
+    </name>
+    <address aid="AID-00000-089075"><streetName>Huis te Landelaan</streetName><houseNumber>29</houseNumber><houseNumberAddition/><postalcode>2283SE</postalcode><locality>RIJSWIJK ZH</locality><residenceName/><country>NLD</country><premise>2344716</premise><full>Huis te Landelaan 29  2283SE RIJSWIJK ZH</full><derived><type>location</type></derived><quality><dataHash>9097c8afec696f63eab0390e2a51876a</dataHash></quality></address>
+    <telecom aid="AID-00000-089076">
+        <countryCode>31</countryCode>
+        <areaCode>06</areaCode>
+        <connectionNumber>22864976</connectionNumber>
+        <nameNumber/>
+        <extensionNumber/>
+        <rate/>
+        <full>06-22864976</full>
+        <context>
+            <type>phone</type>
+        </context>
+        <derived>
+            <type>mobile</type>
+        </derived>
+        <quality>
+            <dataHash>57dacacb41f688e59a58f8c48d312bf4</dataHash>
+        </quality>
+    </telecom>
+</outlet>
+
+</requestForUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Copy of RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgejbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+    <account>
+      <number>63322803</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

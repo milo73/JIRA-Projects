@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="CI_UTIL_esb_receiver" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ESB_RECEIVERBinding" type="wsdl" bindingName="{http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER}ESB_RECEIVERBinding" soapVersion="1_1" anonymous="optional" definition="http://mbstest6:8091/orawsv/ESBMGR/ESB_RECEIVER" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://mbstest4:8091/orawsv/ESBMGR/ESB_RECEIVER?wsdl"><con:part><con:url>http://mbstest4:8091/orawsv/ESBMGR/ESB_RECEIVER?wsdl</con:url><con:content><![CDATA[<definitions name="ESB_RECEIVER" targetNamespace="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema targetNamespace="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER" elementFormDefault="qualified">
+      <xsd:element name="ESB_RECEIVERInput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="P_RESPONSE-XMLTYPE-OUT">
+              <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="P_MESSAGE-XMLTYPE-IN">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:any/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ESB_RECEIVEROutput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="P_RESPONSE">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:any/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="ESB_RECEIVERInputMessage">
+    <part name="parameters" element="tns:ESB_RECEIVERInput"/>
+  </message>
+  <message name="ESB_RECEIVEROutputMessage">
+    <part name="parameters" element="tns:ESB_RECEIVEROutput"/>
+  </message>
+  <portType name="ESB_RECEIVERPortType">
+    <operation name="ESB_RECEIVER">
+      <input message="tns:ESB_RECEIVERInputMessage"/>
+      <output message="tns:ESB_RECEIVEROutputMessage"/>
+    </operation>
+  </portType>
+  <binding name="ESB_RECEIVERBinding" type="tns:ESB_RECEIVERPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ESB_RECEIVER">
+      <soap:operation soapAction="ESB_RECEIVER"/>
+      <input>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ESB_RECEIVERService">
+    <documentation>Oracle Web Service</documentation>
+    <port name="ESB_RECEIVERPort" binding="tns:ESB_RECEIVERBinding">
+      <soap:address location="http://mbstest4:8091/orawsv/ESBMGR/ESB_RECEIVER"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://mbstest6:8091/orawsv/ESBMGR/ESB_RECEIVER</con:endpoint></con:endpoints><con:operation isOneWay="false" action="ESB_RECEIVER" name="ESB_RECEIVER" bindingOperationName="ESB_RECEIVER" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="DEV Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Basic ZXNidXNyOmRldnV0aWw=" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://mbstest6:8091/orawsv/ESBMGR/ESB_RECEIVER</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:esb="http://xmlns.oracle.com/orawsv/ESBMGR/ESB_RECEIVER">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <esb:ESB_RECEIVERInput>
+         <esb:P_RESPONSE-XMLTYPE-OUT/>
+         <esb:P_MESSAGE-XMLTYPE-IN>
+<commandToPublish version="V3.4" source="mbsMig">
+   <seaPublication version="V1.1">
+      <merchantId>40000979</merchantId>
+      <account xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <number>63021849</number>
+      </account>
+      <product xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <code>SEAPlus</code>
+          <displayName>Google AdWords Campagne Plus</displayName>
+        </product>
+      <budget>
+         <id>7e6ebd68-57ab-e311-ad93-00155da88a1b</id>
+         <status>startPublication</status>
+         <monthlyBudget>250</monthlyBudget>
+         <mediaFraction>0.6200000000</mediaFraction>
+         <requestedStartDate>2014-03-28</requestedStartDate>
+         <nrOfMonths>6</nrOfMonths>
+      </budget>
+      <heading xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <code>24U05</code>
+        <displayName>24-uursservice</displayName>
+      </heading>
+      <outlet>
+         <name aid="AID-0000-6757">
+            <business>Lugtenberg Mechanisatie Bedrijf</business>
+            <print>
+               <name1/>
+               <name2>Lugtenberg Mechanisatie Bedrijf</name2>
+               <name3/>
+               <name4/>
+            </print>
+            <sort>LUGTENBERG MECHANISATIE BEDRYF</sort>
+            <full>Lugtenberg Mechanisatie Bedrijf</full>
+            <quality>
+               <dataHash>18628c5c19df16a737a7ee4180e478f2</dataHash>
+            </quality>
+         </name>
+         <address aid="AID-0000-6758">
+            <streetName>Noordwolderweg</streetName>
+            <houseNumber>19</houseNumber>
+            <houseNumberAddition/>
+            <postalcode>8393RC</postalcode>
+            <locality>VINKEGA</locality>
+            <residenceName/>
+            <country>NLD</country>
+            <premise>7480211</premise>
+            <full>Noordwolderweg 19  8393RC VINKEGA</full>
+            <quality>
+               <dataHash>fcb6f973d47918c14126ec963b02384f</dataHash>
+            </quality>
+         </address>
+         <telecom aid="AID-0000-6759">
+            <countryCode/>
+            <areaCode>0561</areaCode>
+            <connectionNumber>432374</connectionNumber>
+            <nameNumber/>
+            <extensionNumber/>
+            <rate/>
+            <full>(0561) 432374</full>
+            <quality>
+               <dataHash>0eaa1b616373ffeb86e126add01e8048</dataHash>
+            </quality>
+         </telecom>
+      </outlet>
+      <legacy>
+         <salesEmployee xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <id>ervewal</id>
+            <name>Walter van Erven</name>
+            <email>w.vanerven@atworkmgt.nl</email>
+         </salesEmployee>
+      </legacy>
+    
+            
+    </seaPublication>
+</commandToPublish>
+         </esb:P_MESSAGE-XMLTYPE-IN>
+      </esb:ESB_RECEIVERInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="ESB_RECEIVER"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

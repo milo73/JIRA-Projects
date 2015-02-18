@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="TEST ESB WebService" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="esbWebServiceSoapBinding" type="wsdl" bindingName="{http://schema.dtg.nl/esb_webservice/wsdl/1.1}esbWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://dtgtjbfcrm01:8092/esbWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dtgtjbfcrm01:8092/esbWebService?wsdl"><con:part><con:url>http://dtgtjbfcrm01:8092/esbWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+      <simpleType name="CompletionStatusCode">
+        <restriction base="xsd:string">
+          <enumeration value="OK"/>
+          <enumeration value="ERROR"/>
+        </restriction>
+      </simpleType>
+      <element name="WebServiceInvocationResult">
+        <complexType>
+          <sequence>
+            <element name="code" type="wns:CompletionStatusCode"/>
+            <element name="message" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="xml" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="postEsbMessageRequest">
+    <wsdl:part element="wns:xml" name="postEsbMessageRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageResponse">
+    <wsdl:part element="wns:WebServiceInvocationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="esbWebService">
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input message="wns:postEsbMessageRequest"></wsdl:input>
+      <wsdl:output message="wns:postEsbMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="esbWebServiceSoapBinding" type="wns:esbWebService">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input name="postEsbMessageRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEsbMessageResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="esb-web-service">
+    <wsdl:port binding="wns:esbWebServiceSoapBinding" name="esb-port">
+      <wsdlsoap:address location="http://dtgtjbfcrm01:8092/esbWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="postEsbMessage" bindingOperationName="postEsbMessage" type="Request-Response" outputName="postEsbMessageResponse" inputName="postEsbMessageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="RFV"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForUpdate source="dtgZakelijk" version="V4.0">
+	<account version="V2.5">
+		<number>64704640</number>
+		<meta>
+			<modifiedOn>2015-01-19T08:51:12</modifiedOn>
+			<status>active</status>
+		</meta>
+		<flags>
+			<noContactDTG>false</noContactDTG>
+			<noEmailAddress>false</noEmailAddress>
+			<wantsNewsLetter>false</wantsNewsLetter>
+			<dontCallMeRegistered>false</dontCallMeRegistered>
+			<noUrl>true</noUrl>
+			<businessDiscontinued>false</businessDiscontinued>
+			<businessInBankruptcy>false</businessInBankruptcy>
+		</flags>
+		<migration>
+			<debtor>complete</debtor>
+			<onlineServices>complete</onlineServices>
+			<profileServices>complete</profileServices>
+		</migration>
+		<type>
+			<isAgency>false</isAgency>
+			<isTradeOrganisation>false</isTradeOrganisation>
+			<legalForm />
+		</type>
+		<chamberOfCommerce>
+			<number>594618290000</number>
+		</chamberOfCommerce>
+		<heading>
+			<code>WAT15</code>
+			<full>Watersportartikelen</full>
+		</heading>
+		<name>
+			<full>BZN Traide</full>
+		</name>
+		<address>
+			<streetName>Jan Josephsz v Goyenstr</streetName>
+			<houseNumber>19</houseNumber>
+			<houseNumberAddition />
+			<postalcode>1394EN</postalcode>
+			<locality>NEDERHORST DEN BERG</locality>
+			<country>NLD</country>
+			<premise />
+			<placementHierarchy>
+				<area>
+					<code>West</code>
+					<displayName>West</displayName>
+				</area>
+				<territory>
+					<code>23P</code>
+					<displayName>'t Gooi</displayName>
+				</territory>
+				<region>
+					<code>23AW</code>
+					<displayName>'t Gooi</displayName>
+				</region>
+				<publicationLocality>
+					<code>NERA</code>
+					<displayName>Nederhorst den Berg</displayName>
+				</publicationLocality>
+			</placementHierarchy>
+			<full />
+			<context>
+				<type>visitAddress</type>
+			</context>
+		</address>
+		<address>
+			<streetName>Jan Josephsz v Goyenstr</streetName>
+			<houseNumber>19</houseNumber>
+			<houseNumberAddition />
+			<postalcode>1394EN</postalcode>
+			<locality>NEDERHORST DEN BERG</locality>
+			<country>NLD</country>
+			<premise /><full />
+			<context>
+				<type>postalAddress</type>
+			</context>
+		</address>
+		<email>
+			<full>j.feeke.2@dtg.nl</full>
+		</email>
+		<web>
+			<url>http://www.dtg.nl</url>
+			<description />
+			<full />
+		</web>
+		<telecom>
+			<countryCode />
+			<areaCode>06</areaCode>
+			<connectionNumber>46113984</connectionNumber>
+			<nameNumber />
+			<extensionNumber />
+			<rate />
+			<full>06-46113984</full>
+			<context>
+				<type>phone</type>
+			</context>
+			<quality>
+				<dataHash />
+				<userMessage />
+				</quality>
+		</telecom>
+		<financial>
+			<isDebtor>false</isDebtor>
+			<vatLiability>true</vatLiability>
+			<invoiceDistributionVia>regularMail</invoiceDistributionVia>
+		</financial>
+		<sales>
+			<totalCurrentInstallbaseValue>0.00</totalCurrentInstallbaseValue>
+			<channel />
+			<employee>
+				<id>DTGLAN\sv_crmuser</id>
+			</employee>
+			<classification>silver</classification>
+		</sales>
+		<validation>
+			<validated>false</validated>
+		</validation>
+	</account>
+</requestForUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation version="V4.0" source="dtgZakelijk"><order version="V1.2"><account><number>1365065</number></account></order></requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForUpdate source="mbsMig" version="V2.4">
+<outlet version="V2.4"><outletId>OID-00000-29237</outletId><meta><version>3</version><validFrom>2014-03-17T14:46:52Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>mbsMig</system><user/><id/></source><account><number>63367709</number></account><heading aid="ee"><code>SCH57</code><full>Schoenmakers</full><quality><dataHash>06614e77e89a195afcc2b69d74a0057c</dataHash></quality></heading><name aid="AID-00002-85575"><business>Erwin van den Elzen Tegelwerken</business><print><name1/><name2>Erwin van den Elzen Tegelwerken</name2><name3/><name4/></print><sort>ERWIN ELZEN TEGELWERKEN</sort><full>Erwin van den Elzen Tegelwerken</full><derived><type>business</type></derived><quality><dataHash>0a501a013aaef3de100402e56d8ba1ff</dataHash></quality></name><address aid="AID-00002-85576"><streetName>Helfrichstraat</streetName><houseNumber>43</houseNumber><houseNumberAddition/><postalcode>5427SC</postalcode><locality>BOEKEL</locality><residenceName/><country>NLD</country><premise>5309628</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 43  5427SC BOEKEL</full><derived><type>location</type></derived><quality><dataHash>726ca04b3330137ae69ceeec4b2504d5</dataHash></quality></address><telecom aid="AID-00002-85577"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>52675264</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-52675264</full><context><type>phone</type></context><derived><type>mobile</type></derived><quality><dataHash>235a66c59d1d7538b51c7b7584199cda</dataHash></quality></telecom></outlet>
+ </requestForUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="esbWebServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Increment RFx seq" searchProperties="true" id="99dfdae2-878c-4539-8369-fcaf7730f2b4"><con:settings/><con:testStep type="request" name="RFIx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFIx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+     <account>
+      <number>63367709</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2RFV"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFIx</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="true" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForInformationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" useXQuery="false" transferChildNodes="false" entitize="false" transferToAll="false" ignoreEmpty="false"><con:name>increase housenumber</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>(//outlet/address[1]/houseNumber[1]) +1</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath>//outlet/address[1]/houseNumber[1]</con:targetPath></con:transfers></con:config></con:testStep><con:testStep type="request" name="RFVx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFVx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForValidation source="msDynCrm" version="V2.4">
+${#TestCase#Temp2}
+          </requestForValidation>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2RFU"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFVx</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="false" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForValidationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="RFUx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFUx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForUpdate source="msDynCrm" version="V2.4">
+${#TestCase#Temp2}
+          </requestForUpdate>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="NOUx" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="NOUx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+         <notificationOnUpdate source="masterContentDatabase" version="V2.4">
+${#TestCase#Temp2}
+          </notificationOnUpdate>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>Temp1</con:name><con:value><![CDATA[<requestForValidationReturn version="V2.4">
+    <response>
+        <status>200 OK</status>
+                    </response>
+    <outlet version="V2.4"><outletId>OID-00000-29237</outletId><meta><version>3</version><validFrom>2014-03-17T14:43:43Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>mbsMig</system><user/><id/></source><account><number>63367709</number></account><heading aid="ee"><code>SCH57</code><full>Schoenmakers</full><quality><dataHash>06614e77e89a195afcc2b69d74a0057c</dataHash></quality></heading><name aid="AID-00002-85575"><business>Erwin van den Elzen Tegelwerken</business><print><name1/><name2>Erwin van den Elzen Tegelwerken</name2><name3/><name4/></print><sort>ERWIN ELZEN TEGELWERKEN</sort><full>Erwin van den Elzen Tegelwerken</full><derived><type>business</type></derived><quality><dataHash>0a501a013aaef3de100402e56d8ba1ff</dataHash></quality></name><address aid="AID-00002-85576"><streetName>Helfrichstraat</streetName><houseNumber>44</houseNumber><houseNumberAddition/><postalcode>5427SG</postalcode><locality>BOEKEL</locality><residenceName>.0</residenceName><country>NLD</country><premise>5309661</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 44  5427SG BOEKEL</full><derived><type>location</type></derived><quality><dataHash>9da3f0820c4a2c619075ec25e873156c</dataHash></quality><alternative><streetName>Helfrichstraat</streetName><houseNumber>44.0</houseNumber><houseNumberAddition/><postalcode>5427SC</postalcode><locality>BOEKEL</locality><residenceName>.0</residenceName><country>NLD</country><premise>5309628</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 44.0  5427SC BOEKEL</full><derived><type>location</type></derived><quality><dataHash>404bb0fd75de8743ec3173dd1d015e79</dataHash><severity>Warning</severity><userMessage>De gebruiker heeft de suggestie van HI overruled</userMessage></quality><placementHierarchy>
+            
+               South
+               South
+            
+            
+               15P
+               Den Bosch, Oss
+            
+            
+               15BW
+               Oss, Uden, Veghel
+            
+            
+               BOE
+               Boekel
+            
+         </placementHierarchy></alternative></address><telecom aid="AID-00002-85577"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>52675263</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-52675263</full><context><type>phone</type></context><derived><type>mobile</type></derived><quality><dataHash>9de5eb59d6c313f98b86ac023e6377b3</dataHash></quality></telecom></outlet></requestForValidationReturn>]]></con:value></con:property><con:property><con:name>Temp2</con:name><con:value><![CDATA[<outlet version="V2.4"><outletId>OID-00000-29237</outletId><meta><version>3</version><validFrom>2014-03-17T14:43:43Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>mbsMig</system><user/><id/></source><account><number>63367709</number></account><heading aid="ee"><code>SCH57</code><full>Schoenmakers</full><quality><dataHash>06614e77e89a195afcc2b69d74a0057c</dataHash></quality></heading><name aid="AID-00002-85575"><business>Erwin van den Elzen Tegelwerken</business><print><name1/><name2>Erwin van den Elzen Tegelwerken</name2><name3/><name4/></print><sort>ERWIN ELZEN TEGELWERKEN</sort><full>Erwin van den Elzen Tegelwerken</full><derived><type>business</type></derived><quality><dataHash>0a501a013aaef3de100402e56d8ba1ff</dataHash></quality></name><address aid="AID-00002-85576"><streetName>Helfrichstraat</streetName><houseNumber>44</houseNumber><houseNumberAddition/><postalcode>5427SG</postalcode><locality>BOEKEL</locality><residenceName>.0</residenceName><country>NLD</country><premise>5309661</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 44  5427SG BOEKEL</full><derived><type>location</type></derived><quality><dataHash>9da3f0820c4a2c619075ec25e873156c</dataHash></quality><alternative><streetName>Helfrichstraat</streetName><houseNumber>44.0</houseNumber><houseNumberAddition/><postalcode>5427SC</postalcode><locality>BOEKEL</locality><residenceName>.0</residenceName><country>NLD</country><premise>5309628</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 44.0  5427SC BOEKEL</full><derived><type>location</type></derived><quality><dataHash>404bb0fd75de8743ec3173dd1d015e79</dataHash><severity>Warning</severity><userMessage>De gebruiker heeft de suggestie van HI overruled</userMessage></quality><placementHierarchy>
+            
+               South
+               South
+            
+            
+               15P
+               Den Bosch, Oss
+            
+            
+               15BW
+               Oss, Uden, Veghel
+            
+            
+               BOE
+               Boekel
+            
+         </placementHierarchy></alternative></address><telecom aid="AID-00002-85577"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>52675263</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-52675263</full><context><type>phone</type></context><derived><type>mobile</type></derived><quality><dataHash>9de5eb59d6c313f98b86ac023e6377b3</dataHash></quality></telecom></outlet>]]></con:value></con:property><con:property><con:name>Temp3</con:name><con:value>19.0</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="NOU fix" searchProperties="true"><con:settings/><con:testStep type="request" name="RFIx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFIx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+     <account>
+      <number>63367709</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2NOU"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFIx</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="true" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForInformationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="NOUx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="NOUx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+         <notificationOnUpdate source="masterContentDatabase" version="V2.4">
+${#TestCase#Temp1}
+          </notificationOnUpdate>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>Temp1</con:name><con:value><![CDATA[<requestForInformationReturn version="V2.3">
+    <response>
+        <status>200 OK</status>
+                    </response>
+            <outlet version="V2.4"><outletId>OID-00000-29237</outletId><meta><version>4</version><validFrom>2014-03-17T14:47:19Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>mbsMig</system><user/><id/></source><account><number>63367709</number></account><heading aid="ee"><code>SCH57</code><full>Schoenmakers</full><quality><dataHash>06614e77e89a195afcc2b69d74a0057c</dataHash></quality></heading><name aid="AID-00002-85575"><business>Erwin van den Elzen Tegelwerken</business><print><name1/><name2>Erwin van den Elzen Tegelwerken</name2><name3/><name4/></print><sort>ERWIN ELZEN TEGELWERKEN</sort><full>Erwin van den Elzen Tegelwerken</full><derived><type>business</type></derived><quality><dataHash>0a501a013aaef3de100402e56d8ba1ff</dataHash></quality></name><address aid="AID-00002-85576"><streetName>Helfrichstraat</streetName><houseNumber>43</houseNumber><houseNumberAddition/><postalcode>5427SC</postalcode><locality>BOEKEL</locality><residenceName/><country>NLD</country><premise>5309628</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 43  5427SC BOEKEL</full><derived><type>location</type></derived><quality><dataHash>726ca04b3330137ae69ceeec4b2504d5</dataHash></quality></address><telecom aid="AID-00002-85577"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>52675264</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-52675264</full><context><type>phone</type></context><derived><type>mobile</type></derived><quality><dataHash>235a66c59d1d7538b51c7b7584199cda</dataHash></quality></telecom></outlet>
+    </requestForInformationReturn>]]></con:value></con:property><con:property><con:name>Temp2</con:name><con:value><![CDATA[<outlet version="V2.4"><outletId>OID-00000-29237</outletId><meta><version>4</version><validFrom>2014-03-17T14:47:19Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>mbsMig</system><user/><id/></source><account><number>63367709</number></account><heading aid="ee"><code>SCH57</code><full>Schoenmakers</full><quality><dataHash>06614e77e89a195afcc2b69d74a0057c</dataHash></quality></heading><name aid="AID-00002-85575"><business>Erwin van den Elzen Tegelwerken</business><print><name1/><name2>Erwin van den Elzen Tegelwerken</name2><name3/><name4/></print><sort>ERWIN ELZEN TEGELWERKEN</sort><full>Erwin van den Elzen Tegelwerken</full><derived><type>business</type></derived><quality><dataHash>0a501a013aaef3de100402e56d8ba1ff</dataHash></quality></name><address aid="AID-00002-85576"><streetName>Helfrichstraat</streetName><houseNumber>43</houseNumber><houseNumberAddition/><postalcode>5427SC</postalcode><locality>BOEKEL</locality><residenceName/><country>NLD</country><premise>5309628</premise><placementHierarchy><area><code>South</code><displayName>South</displayName></area><territory><code>15P</code><displayName>Den Bosch, Oss</displayName></territory><region><code>15BW</code><displayName>Oss, Uden, Veghel</displayName></region><publicationLocality><code>BOE</code><displayName>Boekel</displayName></publicationLocality></placementHierarchy><full>Helfrichstraat 43  5427SC BOEKEL</full><derived><type>location</type></derived><quality><dataHash>726ca04b3330137ae69ceeec4b2504d5</dataHash></quality></address><telecom aid="AID-00002-85577"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>52675264</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-52675264</full><context><type>phone</type></context><derived><type>mobile</type></derived><quality><dataHash>235a66c59d1d7538b51c7b7584199cda</dataHash></quality></telecom></outlet>]]></con:value></con:property><con:property><con:name>Temp3</con:name><con:value>19.0</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

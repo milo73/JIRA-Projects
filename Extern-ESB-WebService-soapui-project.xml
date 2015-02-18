@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="External ESB WebService" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="esbWebServiceSoapBinding TestSuite"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="soapui-setings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="Standard RFx seq"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="esbWebServiceSoapBinding" type="wsdl" bindingName="{http://schema.dtg.nl/esb_webservice/wsdl/1.1}esbWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://esb-proxy.int.ops.cx:8093/esbWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dtgtjbfcrm01:8092/esbWebService?wsdl"><con:part><con:url>http://dtgtjbfcrm01:8092/esbWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+      <simpleType name="CompletionStatusCode">
+        <restriction base="xsd:string">
+          <enumeration value="OK"/>
+          <enumeration value="ERROR"/>
+        </restriction>
+      </simpleType>
+      <element name="WebServiceInvocationResult">
+        <complexType>
+          <sequence>
+            <element name="code" type="wns:CompletionStatusCode"/>
+            <element name="message" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="xml" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="postEsbMessageRequest">
+    <wsdl:part element="wns:xml" name="postEsbMessageRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageResponse">
+    <wsdl:part element="wns:WebServiceInvocationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="esbWebService">
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input message="wns:postEsbMessageRequest"></wsdl:input>
+      <wsdl:output message="wns:postEsbMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="esbWebServiceSoapBinding" type="wns:esbWebService">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input name="postEsbMessageRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEsbMessageResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="esb-web-service">
+    <wsdl:port binding="wns:esbWebServiceSoapBinding" name="esb-port">
+      <wsdlsoap:address location="http://dtgtjbfcrm01:8092/esbWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="postEsbMessage" bindingOperationName="postEsbMessage" type="Request-Response" outputName="postEsbMessageResponse" inputName="postEsbMessageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+  <notificationOnUpdate source="masterContentDatabase" version="V2.4">
+    <outlet version="V2.4">
+        <outletId>OID-00000-29230</outletId>
+        <meta>
+            <version>4</version>
+            <validFrom>2014-03-20T13:51:33Z</validFrom>
+            <validTo/>
+            <schemaVersion>V2.4</schemaVersion>
+        </meta>
+        <web aid="532af264000e020052000009">
+            <url>www.test.nl</url>
+            <description>asdasd</description>
+            <full>http://www.test.nl</full>
+            <context>
+                <type>main</type>
+            </context>
+            <derived>
+                <type>http</type>
+            </derived>
+            <derived>
+                <type>nonMobi</type>
+            </derived>
+            <derived>
+                <type>hostOnly</type>
+            </derived>
+            <quality>
+                <dataHash>1a8c84680b49c9195dba8bca39fed8f4</dataHash>
+            </quality>
+        </web>
+    </outlet>
+</notificationOnUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://esb-proxy01.int.ops.cx:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+     <account>
+      <number>863367695</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFV"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dtgtjbfcrm02:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForValidation source="msDynCrm" version="V2.4">
+<outlet version="V2.4">
+<outletId>TID-00000-12044</outletId>
+<meta>
+<version>1</version>
+<validFrom>2014-01-23T13:02:39Z</validFrom>
+<validTo/>
+<schemaVersion>V2.4</schemaVersion>
+</meta>
+<source>
+<system>msDynCrm</system>
+<user>CRM</user>
+<id>CRM</id>
+</source>
+<account>
+<number>90002201</number>
+</account>
+<name aid="AID-00001-15650">
+<business>Inkt</business>
+<print>
+<name1/>
+<name2>Inkt</name2>
+<name3/>
+<name4/>
+</print>
+<sort>INKT</sort>
+<full>Inkt</full>
+<derived>
+<type>business</type>
+</derived>
+<quality>
+<dataHash>8a83ddf12527cffb109f612a6cc6f2db</dataHash>
+</quality>
+</name>
+<address aid="AID-00001-15651">
+<streetName>Reyner Bogermanstrjitte</streetName>
+<houseNumber>18</houseNumber>
+<houseNumberAddition/>
+<postalcode>9101CK</postalcode>
+<locality>DOKKUM</locality>
+<residenceName/>
+<country>NLD</country>
+<premise>7683357</premise>
+<full>Reyner Bogermanstrjitte 18  9101CK DOKKUM</full>
+<derived>
+<type>location</type>
+</derived>
+<quality>
+<dataHash>85d83b2020c4ece5454e4d8e8b003e02</dataHash>
+</quality>
+</address>
+<address aid="AID-00001-15653">
+<streetName>Postbus</streetName>
+<houseNumber>77863</houseNumber>
+<houseNumberAddition/>
+<postalcode>1070LL</postalcode>
+<locality>AMSTERDAM</locality>
+<residenceName/>
+<country>NLD</country>
+<premise>10889152</premise>
+<full>Postbus 77863  1070LL AMSTERDAM</full>
+<derived>
+<type>poBox</type>
+</derived>
+<quality>
+<dataHash>9e9ac4defdc708956a29e38c2e61e26c</dataHash>
+</quality>
+</address>
+<telecom aid="AID-00001-15652">
+<countryCode>31</countryCode>
+<areaCode>06</areaCode>
+<connectionNumber>40199178</connectionNumber>
+<nameNumber/>
+<extensionNumber/>
+<rate/>
+<full>06-40199178</full>
+<derived>
+<type>mobile</type>
+</derived>
+<quality>
+<dataHash>1c790b23d8e783ac842ef6f779a8f18d</dataHash>
+</quality>
+</telecom>
+</outlet>
+          </requestForValidation>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="esbWebServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Standard RFx seq" searchProperties="true" id="18ef9043-5df8-425d-b436-85c5dcc6ff98"><con:settings/><con:testStep type="request" name="RFI"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+     <account>
+      <number>90002201</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2RFV"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFI</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="true" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForInformationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="RFV"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFV"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForValidation source="msDynCrm" version="V2.4">
+${#TestCase#Temp2}
+          </requestForValidation>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2RFU"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFV</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="false" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForValidationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="RFU"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForUpdate source="msDynCrm" version="V2.4">
+${#TestCase#Temp2}
+          </requestForUpdate>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>Temp1</con:name><con:value><![CDATA[<requestForValidationReturn version="V2.4">
+    <response>
+        <status>200 OK</status>
+                    </response>
+    <outlet version="V2.4"><outletId>TID-00000-12044</outletId><meta><version>1</version><validFrom>2014-03-10T16:43:09Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>msDynCrm</system><user>CRM</user><id>CRM</id></source><account><number>90002201</number></account><name aid="AID-00001-15650"><business>Inkt</business><print><name1/><name2>Inkt</name2><name3/><name4/></print><sort>INKT</sort><full>Inkt</full><derived><type>business</type></derived><quality><dataHash>8a83ddf12527cffb109f612a6cc6f2db</dataHash></quality></name><address aid="AID-00001-15651"><streetName>Reyner Bogermanstrjitte</streetName><houseNumber>18</houseNumber><houseNumberAddition/><postalcode>9101CK</postalcode><locality>DOKKUM</locality><residenceName/><country>NLD</country><premise>7683357</premise><placementHierarchy><area><code>North</code><displayName>North</displayName></area><territory><code>11P</code><displayName>Friesland</displayName></territory><region><code>11AW</code><displayName>Leeuwarden, Dokkum, Franeker, Harlingen</displayName></region><publicationLocality><code>DK</code><displayName>Dokkum</displayName></publicationLocality></placementHierarchy><full>Reyner Bogermanstrjitte 18  9101CK DOKKUM</full><derived><type>location</type></derived><quality><dataHash>a2c3cdf9d88ec21dacf512a64ef1e68a</dataHash><severity>Warning</severity><userMessage>HI is niet beschikbaar</userMessage></quality></address><address aid="AID-00001-15653"><streetName>Postbus</streetName><houseNumber>77863</houseNumber><houseNumberAddition/><postalcode>1070LL</postalcode><locality>AMSTERDAM</locality><residenceName/><country>NLD</country><premise>10889152</premise><full>Postbus 77863  1070LL AMSTERDAM</full><derived><type>poBox</type></derived><quality><dataHash>09069125a959083244c9c38f1acf84c9</dataHash><severity>Warning</severity><userMessage>HI is niet beschikbaar</userMessage></quality></address><telecom aid="AID-00001-15652"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>40199178</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-40199178</full><derived><type>mobile</type></derived><quality><dataHash>1c790b23d8e783ac842ef6f779a8f18d</dataHash></quality></telecom></outlet></requestForValidationReturn>]]></con:value></con:property><con:property><con:name>Temp2</con:name><con:value><![CDATA[<outlet version="V2.4"><outletId>TID-00000-12044</outletId><meta><version>1</version><validFrom>2014-03-10T16:43:09Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>msDynCrm</system><user>CRM</user><id>CRM</id></source><account><number>90002201</number></account><name aid="AID-00001-15650"><business>Inkt</business><print><name1/><name2>Inkt</name2><name3/><name4/></print><sort>INKT</sort><full>Inkt</full><derived><type>business</type></derived><quality><dataHash>8a83ddf12527cffb109f612a6cc6f2db</dataHash></quality></name><address aid="AID-00001-15651"><streetName>Reyner Bogermanstrjitte</streetName><houseNumber>18</houseNumber><houseNumberAddition/><postalcode>9101CK</postalcode><locality>DOKKUM</locality><residenceName/><country>NLD</country><premise>7683357</premise><placementHierarchy><area><code>North</code><displayName>North</displayName></area><territory><code>11P</code><displayName>Friesland</displayName></territory><region><code>11AW</code><displayName>Leeuwarden, Dokkum, Franeker, Harlingen</displayName></region><publicationLocality><code>DK</code><displayName>Dokkum</displayName></publicationLocality></placementHierarchy><full>Reyner Bogermanstrjitte 18  9101CK DOKKUM</full><derived><type>location</type></derived><quality><dataHash>a2c3cdf9d88ec21dacf512a64ef1e68a</dataHash><severity>Warning</severity><userMessage>HI is niet beschikbaar</userMessage></quality></address><address aid="AID-00001-15653"><streetName>Postbus</streetName><houseNumber>77863</houseNumber><houseNumberAddition/><postalcode>1070LL</postalcode><locality>AMSTERDAM</locality><residenceName/><country>NLD</country><premise>10889152</premise><full>Postbus 77863  1070LL AMSTERDAM</full><derived><type>poBox</type></derived><quality><dataHash>09069125a959083244c9c38f1acf84c9</dataHash><severity>Warning</severity><userMessage>HI is niet beschikbaar</userMessage></quality></address><telecom aid="AID-00001-15652"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>40199178</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-40199178</full><derived><type>mobile</type></derived><quality><dataHash>1c790b23d8e783ac842ef6f779a8f18d</dataHash></quality></telecom></outlet>]]></con:value></con:property><con:property><con:name>Temp3</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Increment RFx seq" searchProperties="true" id="c5a6e146-093b-4f9e-9679-fad91302d4bb"><con:settings/><con:testStep type="request" name="RFIx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFIx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+     <account>
+      <number>90002201</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2RFV"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFIx</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="true" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForInformationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" useXQuery="false" transferChildNodes="false" entitize="false" transferToAll="false" ignoreEmpty="false"><con:name>increase housenumber</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>(//outlet/address[1]/houseNumber[1]) +1</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath>//outlet/address[1]/houseNumber[1]</con:targetPath></con:transfers></con:config></con:testStep><con:testStep type="request" name="RFVx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFVx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForValidation source="msDynCrm" version="V2.4">
+${#TestCase#Temp2}
+          </requestForValidation>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Transfer Outlet2RFU"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Source1</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RFVx</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body[1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='WebServiceInvocationResult'][1]/*[namespace-uri()='http://schema.dtg.nl/esb_webservice/wsdl/1.1' and local-name()='message'][1]</con:sourcePath><con:targetType>Temp1</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="false" transferChildNodes="true"><con:name>Outlet</con:name><con:sourceType>Temp1</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath>//requestForValidationReturn/outlet</con:sourcePath><con:targetType>Temp2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="RFUx"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="RFUx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+          <requestForUpdate source="msDynCrm" version="V2.4">
+${#TestCase#Temp2}
+          </requestForUpdate>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="NOUx" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="NOUx"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgdjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+         <notificationOnUpdate source="masterContentDatabase" version="V2.4">
+${#TestCase#Temp2}
+          </notificationOnUpdate>
+      ]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>Temp1</con:name><con:value><![CDATA[<requestForValidationReturn version="V2.4">
+    <response>
+        <status>200 OK</status>
+                    </response>
+    <outlet version="V2.4"><outletId>TID-00000-12044</outletId><meta><version>2</version><validFrom>2014-03-18T13:31:25Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>msDynCrm</system><user>CRM</user><id>CRM</id></source><account><number>90002201</number></account><name aid="AID-00001-15650"><business>Inkt</business><print><name1/><name2>Inkt</name2><name3/><name4/></print><sort>INKT</sort><full>Inkt</full><derived><type>business</type></derived><quality><dataHash>8a83ddf12527cffb109f612a6cc6f2db</dataHash></quality></name><address aid="AID-00001-15651"><streetName>Reyner Bogermanstrjitte</streetName><houseNumber>19.0</houseNumber><houseNumberAddition/><postalcode>9101CK</postalcode><locality>DOKKUM</locality><residenceName/><country>NLD</country><premise>7683357</premise><placementHierarchy><area><code>North</code><displayName>North</displayName></area><territory><code>11P</code><displayName>Friesland</displayName></territory><region><code>11AW</code><displayName>Leeuwarden, Dokkum, Franeker, Harlingen</displayName></region><publicationLocality><code>DK</code><displayName>Dokkum</displayName></publicationLocality></placementHierarchy><full>Reyner Bogermanstrjitte 19.0  9101CK DOKKUM</full><derived><type>location</type></derived><quality><dataHash>8ee8dc4ccd50000e58b83e02c53e961e</dataHash><severity>Error</severity><userMessage>Geen correct adres gevonden</userMessage></quality></address><address aid="AID-00001-15653"><streetName>Postbus</streetName><houseNumber>77863</houseNumber><houseNumberAddition/><postalcode>1070LL</postalcode><locality>AMSTERDAM</locality><residenceName/><country>NLD</country><premise>10889152</premise><full>Postbus 77863  1070LL AMSTERDAM</full><derived><type>poBox</type></derived><quality><dataHash>9e9ac4defdc708956a29e38c2e61e26c</dataHash></quality></address><telecom aid="AID-00001-15652"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>40199178</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-40199178</full><derived><type>mobile</type></derived><quality><dataHash>1c790b23d8e783ac842ef6f779a8f18d</dataHash></quality></telecom></outlet></requestForValidationReturn>]]></con:value></con:property><con:property><con:name>Temp2</con:name><con:value><![CDATA[<outlet version="V2.4"><outletId>TID-00000-12044</outletId><meta><version>2</version><validFrom>2014-03-18T13:31:25Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>msDynCrm</system><user>CRM</user><id>CRM</id></source><account><number>90002201</number></account><name aid="AID-00001-15650"><business>Inkt</business><print><name1/><name2>Inkt</name2><name3/><name4/></print><sort>INKT</sort><full>Inkt</full><derived><type>business</type></derived><quality><dataHash>8a83ddf12527cffb109f612a6cc6f2db</dataHash></quality></name><address aid="AID-00001-15651"><streetName>Reyner Bogermanstrjitte</streetName><houseNumber>19.0</houseNumber><houseNumberAddition/><postalcode>9101CK</postalcode><locality>DOKKUM</locality><residenceName/><country>NLD</country><premise>7683357</premise><placementHierarchy><area><code>North</code><displayName>North</displayName></area><territory><code>11P</code><displayName>Friesland</displayName></territory><region><code>11AW</code><displayName>Leeuwarden, Dokkum, Franeker, Harlingen</displayName></region><publicationLocality><code>DK</code><displayName>Dokkum</displayName></publicationLocality></placementHierarchy><full>Reyner Bogermanstrjitte 19.0  9101CK DOKKUM</full><derived><type>location</type></derived><quality><dataHash>8ee8dc4ccd50000e58b83e02c53e961e</dataHash><severity>Error</severity><userMessage>Geen correct adres gevonden</userMessage></quality></address><address aid="AID-00001-15653"><streetName>Postbus</streetName><houseNumber>77863</houseNumber><houseNumberAddition/><postalcode>1070LL</postalcode><locality>AMSTERDAM</locality><residenceName/><country>NLD</country><premise>10889152</premise><full>Postbus 77863  1070LL AMSTERDAM</full><derived><type>poBox</type></derived><quality><dataHash>9e9ac4defdc708956a29e38c2e61e26c</dataHash></quality></address><telecom aid="AID-00001-15652"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>40199178</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-40199178</full><derived><type>mobile</type></derived><quality><dataHash>1c790b23d8e783ac842ef6f779a8f18d</dataHash></quality></telecom></outlet>]]></con:value></con:property><con:property><con:name>Temp3</con:name><con:value>19.0</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

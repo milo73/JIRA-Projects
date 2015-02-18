@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="ACC ESB WebService" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="esbWebServiceSoapBinding" type="wsdl" bindingName="{http://schema.dtg.nl/esb_webservice/wsdl/1.1}esbWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://dtgajbfcrm01:8092/esbWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dtgtjbfcrm01:8092/esbWebService?wsdl"><con:part><con:url>http://dtgtjbfcrm01:8092/esbWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+      <simpleType name="CompletionStatusCode">
+        <restriction base="xsd:string">
+          <enumeration value="OK"/>
+          <enumeration value="ERROR"/>
+        </restriction>
+      </simpleType>
+      <element name="WebServiceInvocationResult">
+        <complexType>
+          <sequence>
+            <element name="code" type="wns:CompletionStatusCode"/>
+            <element name="message" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="xml" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="postEsbMessageRequest">
+    <wsdl:part element="wns:xml" name="postEsbMessageRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageResponse">
+    <wsdl:part element="wns:WebServiceInvocationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="esbWebService">
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input message="wns:postEsbMessageRequest"></wsdl:input>
+      <wsdl:output message="wns:postEsbMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="esbWebServiceSoapBinding" type="wns:esbWebService">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input name="postEsbMessageRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEsbMessageResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="esb-web-service">
+    <wsdl:port binding="wns:esbWebServiceSoapBinding" name="esb-port">
+      <wsdlsoap:address location="http://dtgtjbfcrm01:8092/esbWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dtgajbfcrm01:8092/esbWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="postEsbMessage" bindingOperationName="postEsbMessage" type="Request-Response" outputName="postEsbMessageResponse" inputName="postEsbMessageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="RFV"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgajbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForValidation source="CRM" version="V2.2">
+<outlet version="V2.3">
+  <outletId>OID-00000-13763</outletId>
+  <meta>
+    <version>3</version>
+    <validFrom>2014-02-12T14:37:36Z</validFrom>
+    <validTo/>
+    <schemaVersion>V2.3</schemaVersion>
+  </meta>
+  <source>
+    <system>MBS</system>
+    <user/>
+    <id/>
+  </source>
+  <account>
+    <number>6318578</number>
+  </account>
+  <name aid="AID-00001-32980">
+    <business>Kluytmans W F C</business>
+    <print>
+      <name1/>
+      <name2>Kluytmans W F C</name2>
+      <name3/>
+      <name4/>
+    </print>
+    <sort/>
+    <full>Kluytmans W F C</full>
+    <derived>
+      <type>business</type>
+    </derived>
+    <quality>
+      <dataHash>d034b4dd63e5cc321f221e8f90a09e5b</dataHash>
+      <severity>Warning</severity>
+      <userMessage>De gebruiker heeft de suggestie van HI overruled</userMessage>
+    </quality>
+  </name>
+  <name aid="AID-00001-32983">
+    <business>Kluytmans Klassieke Homeopathie W F C</business>
+    <print>
+      <name1/>
+      <name2>Kluytmans Klassieke Homeopathie W F C</name2>
+      <name3/>
+      <name4/>
+    </print>
+    <sort>KLUYTMANS KLASSIEKE HOMEOPATHIE</sort>
+    <full>Kluytmans Klassieke Homeopathie W F C</full>
+    <derived>
+      <type>business</type>
+    </derived>
+    <quality>
+      <dataHash>41a2e1c7c22c747e3071f059568041e5</dataHash>
+    </quality>
+  </name>
+  <address aid="AID-00001-32981"><streetName>Frans Fransenstraat</streetName><houseNumber>13</houseNumber><houseNumberAddition/><postalcode>5231MG</postalcode><locality>'S-HERTOGENBOSCH</locality><residenceName/><country>NLD</country><premise>5138186</premise><full>Frans Fransenstraat 13  5231MG 'S-HERTOGENBOSCH</full><derived><type>location</type></derived><quality><dataHash>bd3be1032b4e966787d03353843fc542</dataHash></quality></address>
+  <telecom aid="AID-00001-32982">
+    <countryCode>31</countryCode>
+    <areaCode>073</areaCode>
+    <connectionNumber>6421866</connectionNumber>
+    <nameNumber/>
+    <extensionNumber/>
+    <rate/>
+    <full>(073) 6421866</full>
+    <context>
+      <type>phone</type>
+    </context>
+    <derived>
+      <type>regional</type>
+    </derived>
+    <quality>
+      <dataHash>1531b092b066329ad0b7b4c114833aff</dataHash>
+    </quality>
+  </telecom>
+  <telecom aid="AID-00001-33029">
+    <countryCode>31</countryCode>
+    <areaCode>073</areaCode>
+    <connectionNumber>6421888</connectionNumber>
+    <nameNumber/>
+    <extensionNumber/>
+    <rate/>
+    <full>(073) 6421888</full>
+    <context>
+      <type>fax</type>
+    </context>
+    <derived>
+      <type>regional</type>
+    </derived>
+    <quality>
+      <dataHash>63e3c082c9e022faa4ec418968f8d10f</dataHash>
+    </quality>
+  </telecom>
+  <web aid="AID-00001-33028">
+    <url>citest.12feb.dtg.nl</url>
+    <description/>
+    <full>http://citest.12feb.dtg.nl</full>
+    <context>
+      <type>main</type>
+    </context>
+    <derived>
+      <type>http</type>
+    </derived>
+    <derived>
+      <type>nonMobi</type>
+    </derived>
+    <derived>
+      <type>hostOnly</type>
+    </derived>
+    <quality>
+      <dataHash>ccc5934f45b9b9d62f4536addf79e9f7</dataHash>
+    </quality>
+  </web>
+  <email aid="AID-00001-33027">
+    <full>test@feb12.dtg.nl</full>
+    <quality>
+      <dataHash>c173066278f5975d3174eb1d90ac03b7</dataHash>
+    </quality>
+  </email>
+  <commercial aid="AID-00001-33026">
+    <full>Test12feb</full>
+    <quality>
+      <dataHash>ad8f2d865ad8a84a971eb11dc58088e7</dataHash>
+    </quality>
+  </commercial>
+</outlet>
+
+</requestForValidation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgajbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+    <account>
+      <number>63322803</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgajbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForUpdate source="CRM" version="V2.3">
+    <outlet version="V2.3">
+        <outletId>OID-00000-12053</outletId>
+        <meta>
+            <version>8</version>
+            <validFrom>2014-02-03T13:47:07Z</validFrom>
+            <validTo/>
+            <schemaVersion>V2.3</schemaVersion>
+        </meta>
+        <source>
+            <system>CRM</system>
+            <user>CRM</user>
+            <id>CRM</id>
+        </source>
+        <account>
+            <number>63332253</number>
+        </account>
+        <name aid="AID-00001-15738">
+            <residential>
+                <person1>
+                    <formOfAddress/>
+                    <titleBeforeName/>
+                    <initials/>
+                    <christianNames>B A E</christianNames>
+                    <titleAfterInitials/>
+                    <prefix/>
+                    <familyName>Goeun</familyName>
+                    <additionToName/>
+                    <titlesAfterName/>
+                    <gender/>
+                </person1>
+                <linkingItem/>
+                <person2>
+                    <formOfAddress/>
+                    <titleBeforeName/>
+                    <initials/>
+                    <christianNames/>
+                    <titleAfterInitials/>
+                    <prefix/>
+                    <familyName/>
+                    <additionToName/>
+                    <titlesAfterName/>
+                    <gender/>
+                </person2>
+            </residential>
+            <print>
+                <name1/>
+                <name2>Goeun</name2>
+                <name3>B A E</name3>
+                <name4/>
+            </print>
+            <sort>GOEUN</sort>
+            <full>B A E Goeun</full>
+            <derived>
+                <type>residential</type>
+            </derived>
+            <quality>
+                <dataHash>b5726a3cdf03aafbf9505606db4d4062</dataHash>
+            </quality>
+        </name>
+        <address aid="AID-00001-15739"><streetName>Valckenierstraat</streetName><houseNumber>55</houseNumber><houseNumberAddition>B</houseNumberAddition><postalcode>1018XE</postalcode><locality>AMSTERDAM</locality><residenceName/><country>NLD</country><premise>13383638</premise><full>Valckenierstraat 55 B 1018XE AMSTERDAM</full><derived><type>location</type></derived><quality><dataHash>61e2ac33ce47acaa56782ecb89c368ac</dataHash></quality></address>
+        <telecom aid="AID-00001-15740">
+            <countryCode>31</countryCode>
+            <areaCode>06</areaCode>
+            <connectionNumber>39233314</connectionNumber>
+            <nameNumber/>
+            <extensionNumber/>
+            <rate/>
+            <full>06-39233314</full>
+            <context>
+                <type>phone</type>
+            </context>
+            <derived>
+                <type>mobile</type>
+            </derived>
+            <quality>
+                <dataHash>2be8e1d3a0e1b69d2381ec0cdaaea9c5</dataHash>
+            </quality>
+        </telecom>
+        <web aid="52e10b28000e02002d000054">
+            <url>www.direktdrive.de</url>
+            <description/>
+            <full>http://www.direktdrive.de</full>
+            <derived>
+                <type>http</type>
+            </derived>
+            <derived>
+                <type>nonMobi</type>
+            </derived>
+            <derived>
+                <type>hostOnly</type>
+            </derived>
+            <quality>
+                <dataHash>44ee0cc0fc162d6a40bdaa965ec5576a</dataHash>
+            </quality>
+        </web>
+        <email aid="52e10459000e02002d000053">
+            <full>michael@der.de</full>
+            <quality>
+                <dataHash>1d4f756ee11ae07a7b6715b5c7e48d6c</dataHash>
+            </quality>
+        </email>
+        <visual aid="52d65925000e02005000001f">
+            <productionNumber>8000024</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>26908ab39131c9808e2aa32adbba9f8c</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e0f481000e02002d000038">
+            <productionNumber>8000058</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>ca13b3bb52b5b398ba0bfc01a32b498c</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e0f781000e02002d00003c">
+            <productionNumber>8000059</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>987079a0aa1c8ddffdbc3c0b735430b7</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e61b1a000e02002d00009d">
+            <productionNumber>8000062</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>23424d55203123be9776c2b3c5ae7407</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e61fbd000e02002d00009e">
+            <productionNumber>8000063</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>68a781696637b642ca8d60791a172f1b</dataHash>
+            </quality>
+        </visual>
+    </outlet>
+</requestForUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="CTP"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgajbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<commandToPublish version="V3.4" source="mbsMig"><composition><installBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="V3.1">
+    <externId>40000651</externId>
+    <guid>bc639d14-b5b9-e311-bb5a-005056be3f38</guid>
+    <meta>
+        <modifiedOn>2014-05-01T17:08:48.0000000+02:00</modifiedOn>
+        <status>active</status>
+    </meta>
+    <status>stopPublication</status>
+    <date>2014-04-02</date>
+    <period>P6M</period>
+    <account>
+        <number>63078613</number>
+    </account>
+    <placement>
+        <heading>
+            <code>ALT05</code>
+            <displayName>Alternatieve geneeswijzen</displayName>
+        </heading>
+    </placement>
+    <order>
+        <number>ORD-01052-Q9Z4W6</number>
+        <salesEmployee>
+            <id>2968</id>
+            <name>Chris Blokland</name>
+            <email>C.Blokland@dtg.nl</email>
+        </salesEmployee>
+        <main orderProductGuid="21901db6-b4b9-e311-8b6e-005056be3f37">
+            <product>
+                <code>SEABasis</code>
+                <displayName>Google AdWords Campagne Basis</displayName>
+            </product>
+        </main>
+        <sea>
+            <monthlyBudget>50</monthlyBudget>
+            <mediaFraction>0.5700000000</mediaFraction>
+        </sea>
+    </order>
+    <line sequence="10" orderProductGuid="21901db6-b4b9-e311-8b6e-005056be3f37">
+        <lineType>SEABasis</lineType>
+        <content>
+            <contentType>name</contentType>
+            <outlet>
+                <outletId>OID-00000-83906</outletId>
+                <element>name</element>
+                <aid>AID-00009-19274</aid>
+            </outlet>
+        </content>
+        <content>
+            <contentType>address</contentType>
+            <outlet>
+                <outletId>OID-00000-83906</outletId>
+                <element>address</element>
+                <aid>AID-00009-19270</aid>
+            </outlet>
+        </content>
+        <content>
+            <contentType>telecom</contentType>
+            <outlet>
+                <outletId>OID-00000-83906</outletId>
+                <element>telecom</element>
+                <aid>AID-00009-19271</aid>
+            </outlet>
+        </content>
+        <content>
+            <contentType>web</contentType>
+            <outlet>
+                <outletId>OID-00000-83906</outletId>
+                <element>web</element>
+                <aid>AID-00009-19273</aid>
+            </outlet>
+        </content>
+    </line>
+</installBase>
+    
+    <outlet version="V2.4"><outletId>OID-00000-83906</outletId><meta><version>4</version><validFrom>2014-04-29T13:29:06Z</validFrom><validTo/><schemaVersion>V2.4</schemaVersion></meta><source><system>mbsMig</system><user/><id/></source><account><number>63078613</number></account><heading aid="AID-00030-22523"><code>ALT05</code><full>Alternatieve geneeswijzen</full><quality><dataHash>b442a84db03354ddbb246a1a81597d29</dataHash></quality></heading><name aid="AID-00009-19269"><business>Massabia Ontspanning en Genezing</business><print><name1/><name2>Massabia Ontspanning en Genezing</name2><name3/><name4/></print><sort>MASSABIA ONTSPANNING GENEZING</sort><full>Massabia Ontspanning en Genezing</full><derived><type>business</type></derived><quality><dataHash>54facf6a1272635b00da1dd9991298fb</dataHash></quality></name><name aid="AID-00009-19274"><business>Massabia voor massage en healing</business><print><name1/><name2>Massabia voor massage en healing</name2><name3/><name4/></print><sort>MASSABIA MASSAGE HEALING</sort><full>Massabia voor massage en healing</full><derived><type>business</type></derived><quality><dataHash>7eb2b29d01a56e42a053b77259437cbb</dataHash><severity>Warning</severity><userMessage>De gebruiker heeft de suggestie van HI overruled</userMessage></quality></name><name aid="AID-00030-22521"><business>Massabia Ontspanning en Genezing</business><print><name1/><name2>Massabia Ontspanning en Genezing</name2><name3/><name4/></print><sort>MASSABIA ONTSPANNING GENEZING</sort><full>Massabia Ontspanning en Genezing</full><context><type>main</type></context><derived><type>business</type></derived><quality><dataHash>f76874bb373ad24b4a02f3eee0cb79ab</dataHash></quality></name><name aid="AID-00030-22524"><business>Massabia voor massage en healing</business><print><name1/><name2>Massabia voor massage en healing</name2><name3/><name4/></print><sort>MASSABIA VOOR MASSAGE EN HEALING</sort><full>Massabia voor massage en healing</full><context><type>main</type></context><derived><type>business</type></derived><quality><dataHash>2875b3f7dda1a1c3cf1d96fc6c6b36d4</dataHash><severity>Warning</severity><userMessage>De gebruiker heeft de suggestie van HI overruled</userMessage></quality></name><address aid="AID-00009-19270"><streetName>Nobelstraat</streetName><houseNumber>58</houseNumber><houseNumberAddition/><postalcode>3231BD</postalcode><locality>BRIELLE</locality><residenceName/><country>NLD</country><premise>3595133</premise><placementHierarchy><area><code>Metro</code><displayName>Metro</displayName></area><territory><code>13P</code><displayName>Dordrecht, Spijkenisse, Gorinchem</displayName></territory><region><code>13AW</code><displayName>Hellevoetsluis, Spijkenisse, Ridderkerk</displayName></region><publicationLocality><code>BLE</code><displayName>Brielle</displayName></publicationLocality></placementHierarchy><full>Nobelstraat 58  3231BD BRIELLE</full><context><type>main</type></context><derived><type>location</type></derived><quality><dataHash>ad33154911fe5e81b0a44cbf8a7afc3e</dataHash></quality></address><telecom aid="AID-00009-19271"><countryCode>31</countryCode><areaCode>06</areaCode><connectionNumber>41954077</connectionNumber><nameNumber/><extensionNumber/><rate/><full>06-41954077</full><context><type>phone</type></context><derived><type>mobile</type></derived><quality><dataHash>5767387f570f3b598da730dd35ef1cb2</dataHash></quality></telecom><web aid="AID-00009-19273"><url>www.massabia.nl</url><description/><full>http://www.massabia.nl</full><context><type>main</type></context><derived><type>http</type></derived><derived><type>nonMobi</type></derived><derived><type>hostOnly</type></derived><quality><dataHash>c8ecd9f07ae772b91059a5173a9e742d</dataHash></quality></web><email aid="AID-00009-19277"><full>massabia@live.nl</full><context><type>main</type></context><quality><dataHash>16d06701ed33a98eb75c8d8c76e80bff</dataHash></quality></email><visual aid="AID-00009-19272"><productionNumber>7425015</productionNumber><uri/><full>7425015</full><context><type>contentProfilePage</type></context><quality><dataHash>80b611a1357fa98ed8e1a23ef19f3eb1</dataHash></quality></visual><visual aid="AID-00009-19275"><productionNumber>7299528</productionNumber><uri/><full>7299528</full><context><type>contentProfilePage</type></context><quality><dataHash>b37c53e5796212793742fb59e0d09525</dataHash></quality></visual><keyword aid="AID-00009-19276"><full>massage, therapeut, natuurgeneeskundige, healing, ontspanning</full><quality><dataHash>e957d387df72bd6f74ce76ca9f1a0a43</dataHash></quality></keyword><keyword aid="AID-00030-22525"><full>massage, therapeut, natuurgeneeskundige, healing, ontspanning</full><context><type>main</type></context><quality><dataHash>439f18710a002f11531f3680e3190f60</dataHash></quality></keyword></outlet>
+</composition></commandToPublish>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

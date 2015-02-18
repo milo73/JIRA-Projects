@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="DTG REST Jira" resourceRoot="${projectDir}" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://jira.eurodir.eu" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://jira.eurodir.eu</con:endpoint></con:endpoints><con:resource name="Api" path="/jira/rest/api"><con:settings/><con:parameters/><con:resource name="issue" path="2/issue/"><con:settings/><con:parameters/><con:method name="POST Issue" method="POST"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:value><con:style>HEADER</con:style><con:default>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:default></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="search" path="2/search"><con:settings/><con:parameters><con:parameter><con:name>jql</con:name><con:value>assignee=mdiest</con:value><con:style>QUERY</con:style><con:default>assignee=mdiest</con:default></con:parameter></con:parameters><con:resource name="BRoverview" path=""><con:settings/><con:parameters/><con:method name="BR overview" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:sear="https://jira.eurodir.eu/jira/rest/api/2/search">sear:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project=DESIGN+and+fixVersion='BdR 6'&amp;maxResults=-1" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:sear="https://jira.eurodir.eu/jira/rest/api/2/search">sear:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="assignee" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project=11064&amp;maxResults=-1" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="createmeta" path="2/issue//createmeta "><con:settings/><con:parameters/><con:method name="POST Issue" method="POST"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:value><con:style>HEADER</con:style><con:default>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:default></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="projectVersions" path="2/project/11064"><con:settings/><con:parameters/><con:method name="POST Issue" method="GET"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:value><con:style>HEADER</con:style><con:default>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:default></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="userSToryDetail" path="2/project/11064/versions"><con:settings/><con:parameters/><con:method name="POST Issue" method="GET"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:value><con:style>HEADER</con:style><con:default>Basic bWRpZXN0OkIxbGRlcmRpamtAMjY</con:default></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element xmlns:iss="https://jira.eurodir.eu/jira/rest/api/2/issue/">iss:Fault</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element>status</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:resource><con:resource name="GreenHopper" path="/jira/rest/greenhopper"><con:settings/><con:parameters/><con:resource name="search" path="1.0/rapidview"><con:settings/><con:parameters><con:parameter><con:name>jql</con:name><con:value>assignee=mdiest</con:value><con:style>QUERY</con:style><con:default>assignee=mdiest</con:default></con:parameter></con:parameters><con:method name="rapidview" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rap="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapidview">rap:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="" value=""/>
+  <con:entry key="fghfgh" value=""/>
+  <con:entry key="jql" value="fghfghee=fxghfgxchst"/>
+  <con:entry key="sdfgsdfg" value="sdfgsdfg"/>
+  <con:entry key="jqlsdfgsdfg" value=""/>
+</con:parameters></con:request></con:method></con:resource><con:resource name="sprintquery" path="1.0/sprintquery/63"><con:settings/><con:parameters><con:parameter><con:name>jql</con:name><con:value>assignee=mdiest</con:value><con:style>QUERY</con:style><con:default>assignee=mdiest</con:default></con:parameter></con:parameters><con:method name="sprintquery/63" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:ns="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/sprintquery/40">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/sprintquery/63">ns:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="sprintreport" path="1.0/rapid/charts/sprintreport?rapidViewId=63&amp;sprintId=171"><con:settings/><con:parameters><con:parameter><con:name>rapidViewId</con:name><con:value>63</con:value><con:style>QUERY</con:style><con:default>63</con:default></con:parameter><con:parameter><con:name>sprintId</con:name><con:value>171</con:value><con:style>QUERY</con:style><con:default>171</con:default></con:parameter></con:parameters><con:method name="rapidview" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rap="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapidview">rap:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element xmlns:spr="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapid/charts/sprintreport">spr:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorizaiton" value="Basic ZXNiOjM1YmQzdiE" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="sprintreport with params" path="1.0/rapid/charts/sprintreport"><con:settings/><con:parameters><con:parameter><con:name>rapidViewId</con:name><con:value>63</con:value><con:style>QUERY</con:style><con:default>63</con:default></con:parameter><con:parameter><con:name>sprintId</con:name><con:value>171</con:value><con:style>QUERY</con:style><con:default>171</con:default></con:parameter></con:parameters><con:method name="rapidview" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rap="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapidview">rap:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element xmlns:spr="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapid/charts/sprintreport">spr:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="projectList" path="/1.0/project-list"><con:settings/><con:parameters/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:proj="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/project-list">proj:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="epicreport" path="1.0/rapid/charts/epicreport"><con:settings/><con:parameters><con:parameter><con:name>rapidViewId</con:name><con:value>138</con:value><con:style>QUERY</con:style><con:default>138</con:default></con:parameter><con:parameter><con:name>epicKey</con:name><con:value>DESIGN-26</con:value><con:style>QUERY</con:style><con:default>DESIGN-26</con:default></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:epic="https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapid/charts/epicreport">epic:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/greenhopper/1.0/rapid/charts/epicreport</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="gadget" path="/jira/rest/gadget/1.0"><con:settings/><con:parameters/><con:resource name="projectReport" path="/issueTable/iteration"><con:settings/><con:parameters><con:parameter><con:name>projectId</con:name><con:value>15976</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>15976</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters><con:parameter><con:name>projectId</con:name><con:style>QUERY</con:style></con:parameter></con:parameters><con:representation type="FAULT"><con:mediaType>application/xml;charset=UTF-8</con:mediaType><con:status>500</con:status><con:params/><con:element>status</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rep="https://jira.eurodir.eu/jira/rest/gadget/1.0/project/reports">rep:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:iter="https://jira.eurodir.eu/jira/rest/gadget/1.0/issueTable/iteration">iter:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/gadget/1.0/issueTable/iteration</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="projectId" value="11064" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="projectFilter" path="/project/filters"><con:settings/><con:parameters><con:parameter><con:name>projectId</con:name><con:value>15976</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>15976</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters><con:parameter><con:name>projectId</con:name><con:style>QUERY</con:style></con:parameter></con:parameters><con:representation type="FAULT"><con:mediaType>application/xml;charset=UTF-8</con:mediaType><con:status>500</con:status><con:params/><con:element>status</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rep="https://jira.eurodir.eu/jira/rest/gadget/1.0/project/reports">rep:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="projectId" value="11064" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource></con:resource></con:interface><con:testSuite name="ESB Mantra"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create Mantra" searchProperties="true" id="9212c177-5a0f-41f5-b9bd-72f680e3708e"><con:settings/><con:testStep type="restrequest" name="REST Mantra 1"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESBfffff"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "test",
+        "description": "1. Design implementation (Technical design/how to)",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+	   "components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 1.1"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 1.1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "1.1 Review / enrich requirement specification and define acceptance criteria",
+        "description": "1.1 Review / enrich requirement specification and define acceptance criteria",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 2"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "2. Bootstrap project (only for new projects: subversion, maven archetype, jenkins)",
+        "description": "2. Bootstrap project (only for new projects: subversion, maven archetype, jenkins)",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 3"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "3. Design Tests (TDD approach)",
+        "description": "3. Design Tests (TDD approach)",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 4"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "4. Write Code",
+        "description": "4. Write Code",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 5"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "5. Sonar and test coverage check",
+        "description": "5. Sonar and test coverage check",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 6"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 6" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "6.Smoke Test",
+        "description": "6. Smoke Test",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 7"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 7" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "7. Review Code",
+        "description": "7. Review Code",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 8"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 8" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "8. Regression Test",
+        "description": "8. Regression Test",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 9"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 9" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "9. Write Release Doc",
+        "description": "9. Write Release Doc",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 10"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 10" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "10. Review Release Doc",
+        "description": "10. Review Release Doc",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 11"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 11" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "11. Write Tech Doc",
+        "description": "11. Write Tech Doc",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 12"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 12" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "12. Review Tech Doc",
+        "description": "12. Review Tech Doc",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 13"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 13" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "13. Deploy on dev/demo environment",
+        "description": "13. Deploy on dev/demo environment",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 14"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 14" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "14. Tag",
+        "description": "14. Tag",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="REST Mantra 15"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/issue/" methodName="POST Issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 15" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "15. Update Regression test to use new snapshot version",
+        "description": "15. Update Regression test to use new snapshot version",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+"components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>issueID</con:name><con:value>DTGESB-4121</con:value></con:property></con:properties></con:testSuite><con:testSuite name="Create Meta"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="metadata" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="REST Mantra 1"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Mantra 1" mediaType="application/x-www-form-urlencoded" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request>{
+    "fields":
+    {
+        "project":
+        {
+            "key": "DTGESB"
+        },
+        "parent":
+        {
+            "key": "${#TestSuite#issueID}"
+        },
+        "summary": "1. Design implementation (Technical design/how to)",
+        "description": "1. Design implementation (Technical design/how to)",
+        "issuetype":
+        {
+            "id": "5"
+        }, 
+	   "components":[{"name":"General"}]
+    }
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Basic ZXNiOjM1YmQzdiE=" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

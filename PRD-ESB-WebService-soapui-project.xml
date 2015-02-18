@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="PRD ESB WebService" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="esbWebServiceSoapBinding" type="wsdl" bindingName="{http://schema.dtg.nl/esb_webservice/wsdl/1.1}esbWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://dtgdjbfcrm01:8092/esbWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dtgtjbfcrm01:8092/esbWebService?wsdl"><con:part><con:url>http://dtgtjbfcrm01:8092/esbWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+      <simpleType name="CompletionStatusCode">
+        <restriction base="xsd:string">
+          <enumeration value="OK"/>
+          <enumeration value="ERROR"/>
+        </restriction>
+      </simpleType>
+      <element name="WebServiceInvocationResult">
+        <complexType>
+          <sequence>
+            <element name="code" type="wns:CompletionStatusCode"/>
+            <element name="message" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="xml" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="postEsbMessageRequest">
+    <wsdl:part element="wns:xml" name="postEsbMessageRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageResponse">
+    <wsdl:part element="wns:WebServiceInvocationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="esbWebService">
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input message="wns:postEsbMessageRequest"></wsdl:input>
+      <wsdl:output message="wns:postEsbMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="esbWebServiceSoapBinding" type="wns:esbWebService">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input name="postEsbMessageRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEsbMessageResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="esb-web-service">
+    <wsdl:port binding="wns:esbWebServiceSoapBinding" name="esb-port">
+      <wsdlsoap:address location="http://dtgtjbfcrm01:8092/esbWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="postEsbMessage" bindingOperationName="postEsbMessage" type="Request-Response" outputName="postEsbMessageResponse" inputName="postEsbMessageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="CTB"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+   <commandToBill xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="V2.2" source="msDynCRM" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v2.2/CTB.xsd">
+  <invoiceBatch batchNumber="1000000027" totalBatchSize="4" totalBatchAmount="358.3300" />
+  <invoiceRequest version="V2.3">
+    <number>1000000104</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>63332271</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01016-X9Y4J1</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>14010006</costunit>
+        <costcenter>AMSV</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 24/10/2013 - 23/11/2013</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000054</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="group">
+        <text>Ordernumber: ORD-01014-L5L5P3</text>
+      </line>
+      <line lineSequenceNumber="7" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>14010006</costunit>
+        <costcenter>AMSV</costcenter>
+      </line>
+      <line lineSequenceNumber="8" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="9" lineType="invoicePeriod">
+        <text>Publicatieperiode: 24/10/2013 - 23/11/2013</text>
+      </line>
+      <line lineSequenceNumber="10" lineType="element">
+        <text>IBE-000000000051</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000105</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>15586117</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01005-Q3V0B6</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>UTNG</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 13/01/2014 - 12/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000004</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>UTNG</costcenter>
+      </line>
+      <line lineSequenceNumber="7" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="8" lineType="invoicePeriod">
+        <text>Publicatieperiode: 13/12/2013 - 12/01/2014</text>
+      </line>
+      <line lineSequenceNumber="9" lineType="element">
+        <text>IBE-000000000003</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000106</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>15376229</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01004-D2J3V1</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>EH</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 14/01/2014 - 13/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000007</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000107</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>63332233</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01011-W8V5V9</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Website Basis</text>
+        <amount>29.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83005</ledgerAccount>
+        <costunit>14010012</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 29 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 16/01/2014 - 15/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000025</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="feeSetup">
+        <text>Opstartkosten Basis</text>
+        <amount>799.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83005</ledgerAccount>
+        <costunit>14010000</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="7" lineType="element">
+        <text>IBE-000000000049</text>
+      </line>
+      <line lineSequenceNumber="8" lineType="discount">
+        <text>Korting</text>
+        <amount>-20.6700</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83205</ledgerAccount>
+        <costunit>14010012</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="9" lineType="discount">
+        <text>Korting</text>
+        <amount>-699.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83205</ledgerAccount>
+        <costunit>14010000</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+    </lines>
+  </invoiceRequest>
+</commandToBill>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="CTP"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+   <commandToBill xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="V2.2" source="msDynCRM" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v2.2/CTB.xsd">
+  <invoiceBatch batchNumber="1000000027" totalBatchSize="4" totalBatchAmount="358.3300" />
+  <invoiceRequest version="V2.3">
+    <number>1000000104</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>63332271</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01016-X9Y4J1</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>14010006</costunit>
+        <costcenter>AMSV</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 24/10/2013 - 23/11/2013</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000054</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="group">
+        <text>Ordernumber: ORD-01014-L5L5P3</text>
+      </line>
+      <line lineSequenceNumber="7" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>14010006</costunit>
+        <costcenter>AMSV</costcenter>
+      </line>
+      <line lineSequenceNumber="8" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="9" lineType="invoicePeriod">
+        <text>Publicatieperiode: 24/10/2013 - 23/11/2013</text>
+      </line>
+      <line lineSequenceNumber="10" lineType="element">
+        <text>IBE-000000000051</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000105</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>15586117</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01005-Q3V0B6</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>UTNG</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 13/01/2014 - 12/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000004</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>UTNG</costcenter>
+      </line>
+      <line lineSequenceNumber="7" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="8" lineType="invoicePeriod">
+        <text>Publicatieperiode: 13/12/2013 - 12/01/2014</text>
+      </line>
+      <line lineSequenceNumber="9" lineType="element">
+        <text>IBE-000000000003</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000106</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>15376229</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01004-D2J3V1</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>EH</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 14/01/2014 - 13/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000007</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000107</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>63332233</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01011-W8V5V9</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Website Basis</text>
+        <amount>29.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83005</ledgerAccount>
+        <costunit>14010012</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 29 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 16/01/2014 - 15/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000025</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="feeSetup">
+        <text>Opstartkosten Basis</text>
+        <amount>799.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83005</ledgerAccount>
+        <costunit>14010000</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="7" lineType="element">
+        <text>IBE-000000000049</text>
+      </line>
+      <line lineSequenceNumber="8" lineType="discount">
+        <text>Korting</text>
+        <amount>-20.6700</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83205</ledgerAccount>
+        <costunit>14010012</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="9" lineType="discount">
+        <text>Korting</text>
+        <amount>-699.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83205</ledgerAccount>
+        <costunit>14010000</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+    </lines>
+  </invoiceRequest>
+</commandToBill>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="CTF"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+   <commandToBill xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="V2.2" source="msDynCRM" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v2.2/CTB.xsd">
+  <invoiceBatch batchNumber="1000000027" totalBatchSize="4" totalBatchAmount="358.3300" />
+  <invoiceRequest version="V2.3">
+    <number>1000000104</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>63332271</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01016-X9Y4J1</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>14010006</costunit>
+        <costcenter>AMSV</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 24/10/2013 - 23/11/2013</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000054</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="group">
+        <text>Ordernumber: ORD-01014-L5L5P3</text>
+      </line>
+      <line lineSequenceNumber="7" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>14010006</costunit>
+        <costcenter>AMSV</costcenter>
+      </line>
+      <line lineSequenceNumber="8" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="9" lineType="invoicePeriod">
+        <text>Publicatieperiode: 24/10/2013 - 23/11/2013</text>
+      </line>
+      <line lineSequenceNumber="10" lineType="element">
+        <text>IBE-000000000051</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000105</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>15586117</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01005-Q3V0B6</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>UTNG</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 13/01/2014 - 12/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000004</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>UTNG</costcenter>
+      </line>
+      <line lineSequenceNumber="7" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="8" lineType="invoicePeriod">
+        <text>Publicatieperiode: 13/12/2013 - 12/01/2014</text>
+      </line>
+      <line lineSequenceNumber="9" lineType="element">
+        <text>IBE-000000000003</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000106</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>15376229</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01004-D2J3V1</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Google AdWords Campagne Basis</text>
+        <amount>50.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>84000</ledgerAccount>
+        <costunit>13120006</costunit>
+        <costcenter>EH</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 50 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 14/01/2014 - 13/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000007</text>
+      </line>
+    </lines>
+  </invoiceRequest>
+  <invoiceRequest version="V2.3">
+    <number>1000000107</number>
+    <invoiceType>crmDebit</invoiceType>
+    <debtor>
+      <account>
+        <number>63332233</number>
+      </account>
+    </debtor>
+    <payment>
+      <method>paymentSlip</method>
+      <condition>binnen14d</condition>
+    </payment>
+    <distribution>
+      <via>regularMail</via>
+    </distribution>
+    <isoCurrency>EUR</isoCurrency>
+    <lines>
+      <line lineSequenceNumber="1" lineType="group">
+        <text>Ordernumber: ORD-01011-W8V5V9</text>
+      </line>
+      <line lineSequenceNumber="2" lineType="product">
+        <text>Website Basis</text>
+        <amount>29.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83005</ledgerAccount>
+        <costunit>14010012</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="3" lineType="specification">
+        <text>Maandbedrag: 29 euro</text>
+      </line>
+      <line lineSequenceNumber="4" lineType="invoicePeriod">
+        <text>Publicatieperiode: 16/01/2014 - 15/02/2014</text>
+      </line>
+      <line lineSequenceNumber="5" lineType="element">
+        <text>IBE-000000000025</text>
+      </line>
+      <line lineSequenceNumber="6" lineType="feeSetup">
+        <text>Opstartkosten Basis</text>
+        <amount>799.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83005</ledgerAccount>
+        <costunit>14010000</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="7" lineType="element">
+        <text>IBE-000000000049</text>
+      </line>
+      <line lineSequenceNumber="8" lineType="discount">
+        <text>Korting</text>
+        <amount>-20.6700</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83205</ledgerAccount>
+        <costunit>14010012</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+      <line lineSequenceNumber="9" lineType="discount">
+        <text>Korting</text>
+        <amount>-699.0000</amount>
+        <vatCode>high</vatCode>
+        <ledgerAccount>83205</ledgerAccount>
+        <costunit>14010000</costunit>
+        <costcenter>ENS</costcenter>
+      </line>
+    </lines>
+  </invoiceRequest>
+</commandToBill>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForInformation source="CRM" version="V2.3">
+  <outlet version="V2.3">
+    <account>
+      <number>63322803</number>
+    </account>
+  </outlet>
+</requestForInformation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForUpdate source="CRM" version="V2.3">
+    <outlet version="V2.3">
+        <outletId>OID-00000-12053</outletId>
+        <meta>
+            <version>8</version>
+            <validFrom>2014-02-03T13:47:07Z</validFrom>
+            <validTo/>
+            <schemaVersion>V2.3</schemaVersion>
+        </meta>
+        <source>
+            <system>CRM</system>
+            <user>CRM</user>
+            <id>CRM</id>
+        </source>
+        <account>
+            <number>63332253</number>
+        </account>
+        <name aid="AID-00001-15738">
+            <residential>
+                <person1>
+                    <formOfAddress/>
+                    <titleBeforeName/>
+                    <initials/>
+                    <christianNames>B A E</christianNames>
+                    <titleAfterInitials/>
+                    <prefix/>
+                    <familyName>Goeun</familyName>
+                    <additionToName/>
+                    <titlesAfterName/>
+                    <gender/>
+                </person1>
+                <linkingItem/>
+                <person2>
+                    <formOfAddress/>
+                    <titleBeforeName/>
+                    <initials/>
+                    <christianNames/>
+                    <titleAfterInitials/>
+                    <prefix/>
+                    <familyName/>
+                    <additionToName/>
+                    <titlesAfterName/>
+                    <gender/>
+                </person2>
+            </residential>
+            <print>
+                <name1/>
+                <name2>Goeun</name2>
+                <name3>B A E</name3>
+                <name4/>
+            </print>
+            <sort>GOEUN</sort>
+            <full>B A E Goeun</full>
+            <derived>
+                <type>residential</type>
+            </derived>
+            <quality>
+                <dataHash>b5726a3cdf03aafbf9505606db4d4062</dataHash>
+            </quality>
+        </name>
+        <address aid="AID-00001-15739"><streetName>Valckenierstraat</streetName><houseNumber>55</houseNumber><houseNumberAddition>B</houseNumberAddition><postalcode>1018XE</postalcode><locality>AMSTERDAM</locality><residenceName/><country>NLD</country><premise>13383638</premise><full>Valckenierstraat 55 B 1018XE AMSTERDAM</full><derived><type>location</type></derived><quality><dataHash>61e2ac33ce47acaa56782ecb89c368ac</dataHash></quality></address>
+        <telecom aid="AID-00001-15740">
+            <countryCode>31</countryCode>
+            <areaCode>06</areaCode>
+            <connectionNumber>39233314</connectionNumber>
+            <nameNumber/>
+            <extensionNumber/>
+            <rate/>
+            <full>06-39233314</full>
+            <context>
+                <type>phone</type>
+            </context>
+            <derived>
+                <type>mobile</type>
+            </derived>
+            <quality>
+                <dataHash>2be8e1d3a0e1b69d2381ec0cdaaea9c5</dataHash>
+            </quality>
+        </telecom>
+        <web aid="52e10b28000e02002d000054">
+            <url>www.direktdrive.de</url>
+            <description/>
+            <full>http://www.direktdrive.de</full>
+            <derived>
+                <type>http</type>
+            </derived>
+            <derived>
+                <type>nonMobi</type>
+            </derived>
+            <derived>
+                <type>hostOnly</type>
+            </derived>
+            <quality>
+                <dataHash>44ee0cc0fc162d6a40bdaa965ec5576a</dataHash>
+            </quality>
+        </web>
+        <email aid="52e10459000e02002d000053">
+            <full>michael@der.de</full>
+            <quality>
+                <dataHash>1d4f756ee11ae07a7b6715b5c7e48d6c</dataHash>
+            </quality>
+        </email>
+        <visual aid="52d65925000e02005000001f">
+            <productionNumber>8000024</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>26908ab39131c9808e2aa32adbba9f8c</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e0f481000e02002d000038">
+            <productionNumber>8000058</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>ca13b3bb52b5b398ba0bfc01a32b498c</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e0f781000e02002d00003c">
+            <productionNumber>8000059</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>987079a0aa1c8ddffdbc3c0b735430b7</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e61b1a000e02002d00009d">
+            <productionNumber>8000062</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>23424d55203123be9776c2b3c5ae7407</dataHash>
+            </quality>
+        </visual>
+        <visual aid="52e61fbd000e02002d00009e">
+            <productionNumber>8000063</productionNumber>
+            <uri/>
+            <full/>
+            <context>
+                <type>externalContentWebsite</type>
+            </context>
+            <quality>
+                <dataHash>68a781696637b642ca8d60791a172f1b</dataHash>
+            </quality>
+        </visual>
+    </outlet>
+</requestForUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFV"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<requestForValidation source="CRM" version="V2.2">
+<outlet version="V2.3">
+  <outletId>OID-00000-13763</outletId>
+  <meta>
+    <version>3</version>
+    <validFrom>2014-02-12T14:37:36Z</validFrom>
+    <validTo/>
+    <schemaVersion>V2.3</schemaVersion>
+  </meta>
+  <source>
+    <system>MBS</system>
+    <user/>
+    <id/>
+  </source>
+  <account>
+    <number>6318578</number>
+  </account>
+  <name aid="AID-00001-32980">
+    <business>Kluytmans W F C</business>
+    <print>
+      <name1/>
+      <name2>Kluytmans W F C</name2>
+      <name3/>
+      <name4/>
+    </print>
+    <sort/>
+    <full>Kluytmans W F C</full>
+    <derived>
+      <type>business</type>
+    </derived>
+    <quality>
+      <dataHash>d034b4dd63e5cc321f221e8f90a09e5b</dataHash>
+      <severity>Warning</severity>
+      <userMessage>De gebruiker heeft de suggestie van HI overruled</userMessage>
+    </quality>
+  </name>
+  <name aid="AID-00001-32983">
+    <business>Kluytmans Klassieke Homeopathie W F C</business>
+    <print>
+      <name1/>
+      <name2>Kluytmans Klassieke Homeopathie W F C</name2>
+      <name3/>
+      <name4/>
+    </print>
+    <sort>KLUYTMANS KLASSIEKE HOMEOPATHIE</sort>
+    <full>Kluytmans Klassieke Homeopathie W F C</full>
+    <derived>
+      <type>business</type>
+    </derived>
+    <quality>
+      <dataHash>41a2e1c7c22c747e3071f059568041e5</dataHash>
+    </quality>
+  </name>
+  <address aid="AID-00001-32981"><streetName>Frans Fransenstraat</streetName><houseNumber>13</houseNumber><houseNumberAddition/><postalcode>5231MG</postalcode><locality>'S-HERTOGENBOSCH</locality><residenceName/><country>NLD</country><premise>5138186</premise><full>Frans Fransenstraat 13  5231MG 'S-HERTOGENBOSCH</full><derived><type>location</type></derived><quality><dataHash>bd3be1032b4e966787d03353843fc542</dataHash></quality></address>
+  <telecom aid="AID-00001-32982">
+    <countryCode>31</countryCode>
+    <areaCode>073</areaCode>
+    <connectionNumber>6421866</connectionNumber>
+    <nameNumber/>
+    <extensionNumber/>
+    <rate/>
+    <full>(073) 6421866</full>
+    <context>
+      <type>phone</type>
+    </context>
+    <derived>
+      <type>regional</type>
+    </derived>
+    <quality>
+      <dataHash>1531b092b066329ad0b7b4c114833aff</dataHash>
+    </quality>
+  </telecom>
+  <telecom aid="AID-00001-33029">
+    <countryCode>31</countryCode>
+    <areaCode>073</areaCode>
+    <connectionNumber>6421888</connectionNumber>
+    <nameNumber/>
+    <extensionNumber/>
+    <rate/>
+    <full>(073) 6421888</full>
+    <context>
+      <type>fax</type>
+    </context>
+    <derived>
+      <type>regional</type>
+    </derived>
+    <quality>
+      <dataHash>63e3c082c9e022faa4ec418968f8d10f</dataHash>
+    </quality>
+  </telecom>
+  <web aid="AID-00001-33028">
+    <url>citest.12feb.dtg.nl</url>
+    <description/>
+    <full>http://citest.12feb.dtg.nl</full>
+    <context>
+      <type>main</type>
+    </context>
+    <derived>
+      <type>http</type>
+    </derived>
+    <derived>
+      <type>nonMobi</type>
+    </derived>
+    <derived>
+      <type>hostOnly</type>
+    </derived>
+    <quality>
+      <dataHash>ccc5934f45b9b9d62f4536addf79e9f7</dataHash>
+    </quality>
+  </web>
+  <email aid="AID-00001-33027">
+    <full>test@feb12.dtg.nl</full>
+    <quality>
+      <dataHash>c173066278f5975d3174eb1d90ac03b7</dataHash>
+    </quality>
+  </email>
+  <commercial aid="AID-00001-33026">
+    <full>Test12feb</full>
+    <quality>
+      <dataHash>ad8f2d865ad8a84a971eb11dc58088e7</dataHash>
+    </quality>
+  </commercial>
+</outlet>
+
+</requestForValidation>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="NOU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgpjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>
+      <![CDATA[
+<notificationOnUpdate source="CRM" version="V2.3">
+  <changes>
+    <contact version="V2.1">
+      <number>300000166</number>
+      <meta>
+        <modifiedOn>2013-11-05T10:10:19Z</modifiedOn>
+        <status>active</status>
+      </meta>
+      <account isMainAccount="false">
+        <number>62653175</number>
+        <role>primaryAftersales</role>
+      </account>
+      <account isMainAccount="false">
+        <number>62841393</number>
+        <role>primaryAftersales</role>
+        <role>primaryFinance</role>
+      </account>
+      <account isMainAccount="false">
+        <number>62844288</number>
+        <role>primaryAftersales</role>
+      </account>
+      <account isMainAccount="false">
+        <number>32656</number>
+        <role>primarySales</role>
+        <role>primaryAftersales</role>
+        <role>primaryFinance</role>
+      </account>
+      <name>
+        <parts>
+          <formOfAddress>Geachte Heer . Postma</formOfAddress>
+          <titleBeforeName />
+          <initials>.</initials>
+          <christianNames>.</christianNames>
+          <titleAfterInitials />
+          <prefix />
+          <familyName>Postma</familyName>
+          <additionToName />
+          <titlesAfterName />
+          <gender>male</gender>
+        </parts>
+        <sort />
+        <full>. Postma</full>
+        <derived>
+          <type>residential</type>
+        </derived>
+      </name>
+      <email>
+        <full>dummy@dummy.dummy</full>
+      </email>
+      <telecom>
+        <countryCode />
+        <areaCode />
+        <connectionNumber />
+        <nameNumber />
+        <extensionNumber />
+        <rate />
+        <full>0582130160</full>
+        <context>
+          <type>phone</type>
+          <description />
+        </context>
+      </telecom>
+      <telecom>
+        <countryCode />
+        <areaCode />
+        <connectionNumber />
+        <nameNumber />
+        <extensionNumber />
+        <rate />
+        <full>020</full>
+        <context>
+          <type>fax</type>
+          <description />
+        </context>
+      </telecom>
+    </contact>
+  </changes>
+</notificationOnUpdate>
+]]]]>><![CDATA[
+     </ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="esbWebServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="postEsbMessage TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="postEsbMessage"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>esbWebServiceSoapBinding</con:interface><con:operation>postEsbMessage</con:operation><con:request name="postEsbMessage"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dtgtjbfcrm01:8092/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml>?</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
