@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="External-ESB-TEST-Env" soapui-version="5.2.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" id="9642c02d-363e-43cf-9e78-1637897a00c7" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="esbWebServiceSoapBinding" type="wsdl" bindingName="{http://schema.dtg.nl/esb_webservice/wsdl/1.1}esbWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://dtgtjbfcrm02:8093/esbWebService?wsdl" id="e4bdbdbb-488e-4d7f-a797-d9a1fa1294d2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dtgtjbfcrm02:8093/esbWebService?wsdl"><con:part><con:url>https://dtgtjbfcrm02:8093/esbWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://schema.dtg.nl/esb_webservice/wsdl/1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+      <simpleType name="CompletionStatusCode">
+        <restriction base="xsd:string">
+          <enumeration value="OK"/>
+          <enumeration value="ERROR"/>
+        </restriction>
+      </simpleType>
+      <element name="WebServiceInvocationResult">
+        <complexType>
+          <sequence>
+            <element name="code" type="wns:CompletionStatusCode"/>
+            <element name="message" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="xml" type="xsd:string"/>
+      <!--TODO: Remove cas references-->
+      <element name="casDetails">
+        <complexType>
+          <sequence>
+            <element name="artifact" type="xsd:string"/>
+            <element name="target" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="header">
+    <wsdl:documentation>CAS authentication details</wsdl:documentation>
+    <wsdl:part element="wns:casDetails" name="casDetails"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageRequest">
+    <wsdl:part element="wns:xml" name="postEsbMessageRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEsbMessageResponse">
+    <wsdl:part element="wns:WebServiceInvocationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="esbWebService">
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input message="wns:postEsbMessageRequest"></wsdl:input>
+      <wsdl:output message="wns:postEsbMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="esbWebServiceSoapBinding" type="wns:esbWebService">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postEsbMessage">
+      <wsdl:input name="postEsbMessageRequest">
+        <wsdlsoap:body use="literal"/>
+        <wsdlsoap:header encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" message="wns:header" part="casDetails" use="encoded"></wsdlsoap:header>
+      </wsdl:input>
+      <wsdl:output name="postEsbMessageResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="esb-web-service">
+    <wsdl:port binding="wns:esbWebServiceSoapBinding" name="esb-port">
+      <wsdlsoap:address location="https://dtgtjbfcrm02:8093/esbWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://dtgtjbfcrm02:8093/esbWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="postEsbMessage" bindingOperationName="postEsbMessage" type="Request-Response" outputName="postEsbMessageResponse" inputName="postEsbMessageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="63f7e533-a474-483e-b5fc-2078623bcc31"><con:settings/><con:call name="RFI-Account-Incomplete-01" id="a421e4c0-abb0-4be5-a626-91ee833f5f19"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="8d9a9cae-7675-4352-8365-d97d3f197f90"/>
+  &lt;con:entry key="ssoProxyUser" value="22fafcf4-38c1-4704-8608-78f10ffd6613"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.dev1.dtg.nl:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v4.0/RFI.xsd">
+	<account version="V2.5" xsi:type="accountQueryType">
+		<number>447108</number>
+	</account>
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI-Account-Complete-01" id="565a1b6a-21dd-445d-a856-89adb346642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="4ab4a4d6-c3c4-4dae-b654-2221a7663e72"/>
+  &lt;con:entry key="ssoProxyUser" value="0fea0882-3f5a-4cd1-b9e5-8538ec090528"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dtgtjbfcrm02:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0">
+	<account version="V2.5">
+		<number>64704640</number>
+	</account>
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI-Account-Incomplete-02" id="d1b4f6c1-7b68-4cdd-8040-5c6437ba33f1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="d39ad4ad-28a0-45e4-b6ff-3adf64dc8c65"/>
+  &lt;con:entry key="ssoProxyUser" value="0fea0882-3f5a-4cd1-b9e5-8538ec090528"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dtgtjbfcrm02:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v4.0/RFI.xsd">
+	<account version="V2.5" xsi:type="accountQueryType">
+		<number>1281512</number>
+	</account>
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="RFI-Account-Incomplete-04" id="9b312815-2a39-4407-a787-9d5b3f6493be"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="76f22396-8f30-441a-b184-f4817e0d82dc"/>
+  &lt;con:entry key="ssoProxyUser" value="0fea0882-3f5a-4cd1-b9e5-8538ec090528"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dtgtjbfcrm02:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v4.0/RFI.xsd">
+	<account version="V2.5" xsi:type="accountQueryType">
+		<number>60521830</number>
+	</account>
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Copy of RFI-Account-Complete-01" id="c6d0c402-5bb9-410a-b4ed-2d1ea93a7625"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="24b30fc4-bc6b-49a8-906a-ec1e8ca9e8fc"/>
+  &lt;con:entry key="ssoProxyUser" value="0fea0882-3f5a-4cd1-b9e5-8538ec090528"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://10.1.10.92:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0">
+      <whatever/>
+      <!--
+	<account version="V2.5">
+		<number>64704640</number>
+	</account>
+	-->
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>1571</con:username><con:password>Laptrop2015</con:password><con:domain>dtglan</con:domain><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="tst1 RFI-Account-Complete-01" id="8ab50d34-b762-40c9-a305-9617b7825559"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="4ab4a4d6-c3c4-4dae-b654-2221a7663e72"/>
+  &lt;con:entry key="ssoProxyUser" value="0fea0882-3f5a-4cd1-b9e5-8538ec090528"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.tst1.dtg.nl:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v4.0/RFI.xsd">
+	<account version="V2.5" xsi:type="accountQueryType">
+		<number>64704640</number>
+	</account>
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+]]></con:request><con:credentials><con:username>1571</con:username><con:password>Laptrop2015</con:password><con:domain>dtglan</con:domain><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="dev1 RFI-Account-Complete-01" id="5a91f3f0-c71e-4aab-9995-02a74dac5f3d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="ssoEndUser" value="d62bf41a-9ec4-418d-b17e-9aab515dc571"/>
+  &lt;con:entry key="ssoProxyUser" value="0fea0882-3f5a-4cd1-b9e5-8538ec090528"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.tst1.dtg.nl:8093/esbWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://schema.dtg.nl/esb_webservice/wsdl/1.1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:xml><![CDATA[
+      <requestForInformation source="dtgZakelijk" version="V4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.detelefoongids.nl/message/v4.0/RFI.xsd">
+		<account version="V2.5" xsi:type="accountQueryType">
+		<number>64704640</number>
+	</account>
+</requestForInformation>
+]]]]>><![CDATA[</ns:xml>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>1571</con:username><con:password>Laptrop2015</con:password><con:domain>dtglan</con:domain><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schema.dtg.nl/esb_webservice/wsdl/1.1/esbWebService/postEsbMessageRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

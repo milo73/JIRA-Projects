@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="Jira REST BR gathering" soapui-version="5.2.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" id="13eb1276-8378-46bb-8be1-db60ec1672f8" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://jira.eurodir.eu" type="rest" id="b59eecba-1940-4aaf-92bc-84bc3b153202" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://jira.eurodir.eu</con:endpoint></con:endpoints><con:resource name="Search" path="/jira/rest/api/2/search" id="ccd1bb48-427a-4906-a2db-9d6706d1df9b"><con:settings/><con:parameters><con:parameter><con:name>jql</con:name><con:value>cf[10931]=DESIGN-26</con:value><con:style>QUERY</con:style><con:default>cf[10931]=DESIGN-26</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Search" method="GET" id="1101feef-eaa8-41a7-9ee2-b99059fbd249"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:sear="https://jira.eurodir.eu/jira/rest/api/2/search">sear:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sear="https://jira.eurodir.eu/jira/rest/api/2/search">sear:Response</con:element></con:representation><con:request name="Get Epic children" mediaType="application/json" id="3e6946b5-d1b5-48ce-ba79-a1d691085396"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="cf[10931]=DESIGN-225" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:request><con:request name="Get Epics" mediaType="application/json" id="75ae0bed-6a7f-4679-b88f-80db8efd4fd0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project='DESIGN'&amp;fixVersion='BR 7'&amp;issuetype='Epic'" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:request><con:request name="Copy of Get Epic children" mediaType="application/json" id="77bdb39a-0ee0-4bf1-85fe-bfab9daec666"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite name="TestSuite" id="5b013212-b3cd-4ddd-b8c2-b8de95f55dbf"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="BRM_Epics" searchProperties="true" id="f5c35e68-bbe9-47cb-bdef-37ba85ae2788"><con:settings/><con:testStep type="restrequest" name="Get_Epics" id="916000b1-f926-4ad6-874a-6c41be46b14c"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get_Epics" mediaType="application/json" id="0f2d5b23-9182-4136-9916-f8c834b94d09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project='DESIGN'&amp;fixVersion='BR 7'&amp;issuetype='Epic'" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="MyEpicRequest" id="86596623-9527-4c3f-b66f-64a290a10dfb"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EpicSummary</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get_Epics</con:sourceStep><con:sourcePath>//Reponse/issues/e/summary</con:sourcePath><con:targetType>Epic_Summary</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferChildNodes="false" useXQuery="false" ignoreEmpty="false" transferToAll="false" entitize="false"><con:name>EpicNr</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get_Epics</con:sourceStep><con:sourcePath>//Reponse/issues/e/key</con:sourcePath><con:targetType>Epic_Nr</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="EpicSaveResponse" id="260bf3c1-f842-409d-9e3d-2dc30994adb7"><con:settings/><con:config><script>def myOutFile = "D:/Temp/JIRA/response.xml"
+<con:soapui-project activeEnvironment="Default" name="Jira REST BR gathering" soapui-version="5.2.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" id="13eb1276-8378-46bb-8be1-db60ec1672f8" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="TestSuite"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="Looping v3"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://jira.eurodir.eu" type="rest" id="b59eecba-1940-4aaf-92bc-84bc3b153202" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://jira.eurodir.eu</con:endpoint></con:endpoints><con:resource name="Search" path="/jira/rest/api/2/search" id="ccd1bb48-427a-4906-a2db-9d6706d1df9b"><con:settings/><con:parameters><con:parameter><con:name>jql</con:name><con:value>cf[10931]=DESIGN-26</con:value><con:style>QUERY</con:style><con:default>cf[10931]=DESIGN-26</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Search" method="GET" id="1101feef-eaa8-41a7-9ee2-b99059fbd249"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:sear="https://jira.eurodir.eu/jira/rest/api/2/search">sear:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sear="https://jira.eurodir.eu/jira/rest/api/2/search">sear:Response</con:element></con:representation><con:request name="Get Epic children" mediaType="application/json" id="3e6946b5-d1b5-48ce-ba79-a1d691085396"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="cf[10931]=DESIGN-225" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:request><con:request name="Get Epics" mediaType="application/json" id="75ae0bed-6a7f-4679-b88f-80db8efd4fd0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project='DESIGN'&amp;fixVersion='BR 7'&amp;issuetype='Epic'" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:request><con:request name="Copy of Get Epic children" mediaType="application/json" id="77bdb39a-0ee0-4bf1-85fe-bfab9daec666"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite name="TestSuite" id="5b013212-b3cd-4ddd-b8c2-b8de95f55dbf"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="BRM_Epics" searchProperties="true" id="f5c35e68-bbe9-47cb-bdef-37ba85ae2788"><con:settings/><con:testStep type="restrequest" name="Get_Epics" id="916000b1-f926-4ad6-874a-6c41be46b14c"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get_Epics" mediaType="application/json" id="0f2d5b23-9182-4136-9916-f8c834b94d09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project='DESIGN'&amp;fixVersion='BR 7'&amp;issuetype='Epic'" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="MyEpicRequest" id="86596623-9527-4c3f-b66f-64a290a10dfb"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EpicSummary</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get_Epics</con:sourceStep><con:sourcePath>//Reponse/issues/e/summary</con:sourcePath><con:targetType>Epic_Summary</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferChildNodes="false" useXQuery="false" ignoreEmpty="false" transferToAll="false" entitize="false"><con:name>EpicNr</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get_Epics</con:sourceStep><con:sourcePath>//Reponse/issues/e/key</con:sourcePath><con:targetType>Epic_Nr</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="EpicSaveResponse" id="260bf3c1-f842-409d-9e3d-2dc30994adb7"><con:settings/><con:config><script>def myOutFile = "D:/Temp/JIRA/response.xml"
 def response = context.expand( '${Get_Epics#ResponseAsXml}' )
 def f = new File(myOutFile)
 f.write(response, "UTF-8")</script></con:config></con:testStep><con:testStep type="restrequest" name="REST Test Request" disabled="true" id="9a1aea7a-ea09-49a0-9e6c-c0e64e4dcf35"><con:settings/><con:config service="https://jira.eurodir.eu" methodName="Search" resourcePath="/jira/rest/api/2/search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Test Request" mediaType="application/json" id="83d27281-3e58-499d-8ebf-671cbe0407db"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:entry key="jql" value="cf[10931]=DESIGN-26"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" disabled="true" id="fa987886-eb3a-4cd1-a7f0-c8902fddc55a"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EPICSNR</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>REST Test Request</con:sourceStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:properties><con:property><con:name>Brm_Nr</con:name><con:value>7</con:value></con:property><con:property><con:name>Epic_Nr</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>Epic_Summary</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Looping" searchProperties="true" id="68a87496-2117-4c3f-a5c3-55abe8385ff0"><con:settings/><con:testStep type="groovy" name="Groovy Script – DataSource" id="d8356979-8479-4561-8571-5f1db6dccb04"><con:settings/><con:config><script>/*
@@ -412,7 +442,7 @@ propTestStep.setPropertyValue("StopLoop", "F")
 else
 {
 propTestStep.setPropertyValue("StopLoop", "F")
-}</script></con:config></con:testStep><con:testStep type="properties" name="Property – Looper" id="48189d83-dcf1-4136-ab57-1d8689d00a6b"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Total</con:name><con:value>17</con:value></con:property><con:property><con:name>Value</con:name><con:value>DESIGN-520</con:value></con:property><con:property><con:name>Count</con:name><con:value>0</con:value></con:property><con:property><con:name>Next</con:name><con:value>1</con:value></con:property><con:property><con:name>StopLoop</con:name><con:value>T</con:value></con:property><con:property><con:name>rowCount</con:name><con:value>64</con:value></con:property><con:property><con:name>Epics</con:name><con:value>[DESIGN-624, DESIGN-615, DESIGN-586, DESIGN-577, DESIGN-572, DESIGN-567, DESIGN-566, DESIGN-556, DESIGN-550, DESIGN-547, DESIGN-542, DESIGN-540, DESIGN-538, DESIGN-537, DESIGN-531, DESIGN-522, DESIGN-520]</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Get Epic Children" disabled="true" id="bc895e6b-a704-44ec-9de5-e17f619c2517"><con:settings/><con:config><script>myInterface = testRunner.testCase.testSuite.project.getInterfaceByName("https://jira.eurodir.eu/jira/rest/api/2/")
+}</script></con:config></con:testStep><con:testStep type="properties" name="Property – Looper" id="48189d83-dcf1-4136-ab57-1d8689d00a6b"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Total</con:name><con:value>10</con:value></con:property><con:property><con:name>Value</con:name><con:value>DESIGN-700</con:value></con:property><con:property><con:name>Count</con:name><con:value>1</con:value></con:property><con:property><con:name>Next</con:name><con:value>2</con:value></con:property><con:property><con:name>StopLoop</con:name><con:value>F</con:value></con:property><con:property><con:name>rowCount</con:name><con:value>64</con:value></con:property><con:property><con:name>Epics</con:name><con:value>[DESIGN-700, DESIGN-699, DESIGN-698, DESIGN-684, DESIGN-681, DESIGN-677, DESIGN-673, DESIGN-672, DESIGN-586, DESIGN-545]</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Get Epic Children" disabled="true" id="bc895e6b-a704-44ec-9de5-e17f619c2517"><con:settings/><con:config><script>myInterface = testRunner.testCase.testSuite.project.getInterfaceByName("https://jira.eurodir.eu/jira/rest/api/2/")
 myOperation = myInterface.getOperationByName("search")
 myRequest = myOperation.getRequestByName("?jql=cf[10931]=DESIGN-26")
 // get the context
@@ -687,7 +717,398 @@ else
  testRunner.gotoStepByName("Groovy Script - DataSource") //setStartStep
  log.info "Goto Groovy Script - DataSource"
 }
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Looping v3" searchProperties="true" id="6e8e2ecf-fdb1-4866-b72a-7041dab253b9"><con:settings/><con:testStep type="groovy" name="Setup Loop" disabled="true" id="1f7153e4-c36c-447e-9457-33853297e86c"><con:settings/><con:config><script>import javax.naming.Context
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Looping v3" searchProperties="true" id="765d9dd3-b072-400a-88bf-31f7375a22b2"><con:settings/><con:testStep type="groovy" name="Setup Loop" disabled="true" id="c1a3dafc-1f5b-4c7e-a881-840e8dace2c7"><con:settings/><con:config><script>import javax.naming.Context
+
+def myTestCase = context.testCase
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+propTestStep.setPropertyValue("Total", "")
+propTestStep.setPropertyValue("Value", "")
+propTestStep.setPropertyValue("Count", "0")
+propTestStep.setPropertyValue("Next", "0")
+propTestStep.setPropertyValue("Stoploop", "F")
+propTestStep.setPropertyValue("rowCount", "1")
+propTestStep.setPropertyValue("Epics", "")
+
+</script></con:config></con:testStep><con:testStep type="restrequest" name="Get_Epics" id="068f87d3-d609-4148-8ee7-e2f4ccf43406"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get_Epics" mediaType="application/json" id="89c37aff-8593-431f-b89a-4461e8a1fd27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project='DESIGN'&amp;fixVersion='${#TestSuite#BRMValue}'&amp;issuetype='Epic'" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Epic Property Transfer" disabled="true" id="ca35853f-c2c5-4162-9c41-c50ccdf28d0a"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EpicList</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get_Epics</con:sourceStep><con:sourcePath>//Reponse/issues/e/key</con:sourcePath><con:targetType>Epics</con:targetType><con:targetStep>Property – Looper</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Transfer Epics" id="13e371d0-e86e-425b-9890-03ce1e534bd4"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+import javax.naming.Context
+
+
+def myTestCase = context.testCase
+log.info "Testcase: " + myTestCase.getLabel()
+log.info "Testsuite: " + myTestCase.getParent().getLabel()
+
+// create an XmlHolder
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+// get the response as string
+def epicResponseAsString = context.testCase.getTestStepByName("Get_Epics").getProperty("ResponseAsXml").value  
+def epicHolderResponse = groovyUtils.getXmlHolder(epicResponseAsString)
+log.info epicResponseAsString
+// define namespace
+epicHolderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
+
+// get the node value
+epicStories = epicHolderResponse.getNodeValues("//xmlns:Response/xmlns:issues/xmlns:e/xmlns:key")
+log.info epicStories[0]
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+propTestStep.setPropertyValue("Epics", epicStories.toString())
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script – DataSource" id="ae4476a4-2d00-4c3d-b96e-c5bb474bb0c8"><con:settings/><con:config><script>/*
+@Author : Pradeep Bishnoi
+@Description : Data Source to read .txt file and pass the value to corresponding property.
+@GroovyTestStepName : "Groovy Script - DataSource"
+*/
+ 
+import com.eviware.soapui.support.XmlHolder
+import javax.naming.Context
+
+def myTestCase = context.testCase
+def counter,next,previous,size
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+/*
+File tickerEnumFile = new File("D:/Temp/JIRA/Input.txt") //make sure input.txt file already exists and contains different set of values sepearted by new line (CR).
+List lines = tickerEnumFile.readLines()
+*/
+
+
+
+//List lines = propTestStep.getPropertyValue("Epics").split(",")
+def fullList = []
+fullListStr = propTestStep.getPropertyValue("Epics")
+if (fullListStr != null &amp;&amp; fullListStr != "")
+{
+    //cast string to string list:
+        //  break up the fullMediaNameList at commas, and itterate over the parts
+        fullListStr.tokenize(',[]').each {
+        // trim off leading or trailing whitespace from each part, and append as new element to the array
+    fullList &lt;&lt; it.trim()
+        }
+}
+
+size = fullList.size.toInteger()
+log.info "Amount of Epics in BRM: " + size.toString()
+
+propTestStep.setPropertyValue("Total", size.toString())
+counter = propTestStep.getPropertyValue("Count").toString()
+log.info "counter: " + counter
+counter= counter.toInteger()
+next = (counter > size-2? 0: counter+1)
+tempValue = fullList[counter]
+propTestStep.setPropertyValue("Value", tempValue)
+propTestStep.setPropertyValue("Count", next.toString())
+next++
+log.info "Reading line : ${(counter+1)} / $fullList.size"
+propTestStep.setPropertyValue("Next", next.toString())
+log.info "Value '$tempValue' -- updated in $propTestStep.name"
+if (counter == size-1)
+{
+propTestStep.setPropertyValue("StopLoop", "T")
+log.info "Setting the stoploop property now..."
+}
+else if (counter==0)
+{
+def runner = new com.eviware.soapui.impl.wsdl.testcase.WsdlTestCaseRunner(testRunner.testCase, null)
+propTestStep.setPropertyValue("StopLoop", "F")
+}
+else
+{
+propTestStep.setPropertyValue("StopLoop", "F")
+}</script></con:config></con:testStep><con:testStep type="properties" name="Property – Looper" id="19b58046-ae8c-434b-8a14-8e978bc27c31"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Total</con:name><con:value>10</con:value></con:property><con:property><con:name>Value</con:name><con:value>DESIGN-545</con:value></con:property><con:property><con:name>Count</con:name><con:value>0</con:value></con:property><con:property><con:name>Next</con:name><con:value>1</con:value></con:property><con:property><con:name>StopLoop</con:name><con:value>T</con:value></con:property><con:property><con:name>rowCount</con:name><con:value>34</con:value></con:property><con:property><con:name>Epics</con:name><con:value>[DESIGN-700, DESIGN-699, DESIGN-698, DESIGN-684, DESIGN-681, DESIGN-677, DESIGN-673, DESIGN-672, DESIGN-586, DESIGN-545]</con:value></con:property><con:property><con:name>fileLocation</con:name><con:value>D:\\Temp\\JIRA\\</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Get Epic Children" disabled="true" id="a11a8993-9596-4a56-91b2-4e8126a82267"><con:settings/><con:config><script>myInterface = testRunner.testCase.testSuite.project.getInterfaceByName("https://jira.eurodir.eu/jira/rest/api/2/")
+myOperation = myInterface.getOperationByName("search")
+myRequest = myOperation.getRequestByName("?jql=cf[10931]=DESIGN-26")
+// get the context
+def context = testRunner.getRunContext()
+// send the request synchronous
+def submitted = myRequest.submit(context,false)
+// get the response
+def response = submitted.getResponse()
+// get the response content as string 
+def content = response.getContentAsString()
+// i.e check that the response contains literal 'OK'
+assert content.contains('OK'),"Response not contains OK literal"</script></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="0aa2d6df-4b6d-49fa-8c3b-196e7ad84666"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="true" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EpicValue</con:name><con:sourceType>Value</con:sourceType><con:sourceStep>Property – Looper</con:sourceStep><con:targetType>EpicValue</con:targetType><con:targetStep>#TestSuite#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="REST Get Epic Children" id="6459af1b-9898-4cf9-92b3-59d269ce1888"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Get Epic Children" mediaType="application/json" id="27b25b30-2d45-48a4-b635-9572ed6226d2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="cf[10931]=${#TestSuite#EpicValue}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Read REST Response" disabled="true" id="9a052e4b-ea1c-4e4f-9744-9dd52188d37b"><con:settings/><con:config><script>/*
+@Author: Pradeep Bishnoi
+@Description : To read the REST response and iterate node using Xpath
+*/
+log.info "Start"
+//def testStepName = messageExchange.modelItem.testStep.name   //to get the Test Step Name
+def xmlHold = messageExchange.responseContentAsXml.toString()  //to store the response as Xml string
+log.info "xmlHold: " xmlHold
+/*
+ 
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context )
+def holder = groovyUtils.getXmlHolder (xmlHold)
+log.info holder.getXml()  // will display /Log the response in Xml
+count  = holder.getNodeValue(“count(//Response/e)”)
+count = count.toInteger() + 1  //converting count into Integer &amp; adding 1 for looping purpose
+def xPath = “//Response/issues"
+
+/*
+for (i in 1..&lt;count)
+{
+xPath1 = xPath + i + "]/Name”  // Name value
+xPath2 = xPath + i + “]/EmailAddresses/e”   //email Node value
+log.info holder.getNodeValue(xPath1)
+log.info holder.getNodeValue(xPath2)
+i++
+}
+*/
+//log.info xPath
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script – Data Loop" id="0d5d8dca-3fdb-4b99-ab8d-4fb104d99ef0"><con:settings/><con:config><script>/*&lt;/pre>
+@Author : Pradeep Bishnoi
+@Description : Data Source Looper responsible for looping a specific teststep.
+@GroovyTestStepName : "Groovy Script - Data Loop"
+*/
+//import necessary libs
+import jxl.*
+import jxl.write.*
+import com.eviware.soapui.support.XmlHolder
+
+def myTestCase = context.testCase
+log.info "Testcase: " + myTestCase.getLabel()
+log.info "Testsuite: " + myTestCase.getParent().getLabel()
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+def endLoop = propTestStep.getPropertyValue("StopLoop").toString()
+log.info "End loop: " + endLoop.toString()
+def runner
+//Define the object for the collection of requests in the soapUI test case
+def restTestStep = myTestCase.getTestStepByName("REST Get Epic Children") // get the Property TestStep
+log.info restTestStep.name
+
+
+// Groovy Script to loop through each requests in the test case.
+restTestStep.each{
+ // Creating file name using current date and time
+ Date startTime = new Date();
+ def cur_Time = startTime.getMonth() + "_" + startTime.getDate();
+ cur_Time = cur_Time + "_" + startTime.getHours() + startTime.getMinutes() +startTime.getSeconds()
+ def fileName = it.name + "_" + propTestStep.getPropertyValue("Value").toString()
+ int rowCount = Integer.parseInt( propTestStep.getPropertyValue("rowCount"))
+ log.info "rowCount: " + rowCount
+ def fileLocation =  propTestStep.getPropertyValue("fileLocation")
+ def inputFileResponse = new File(fileLocation + "Response_" + fileName+".xml")
+ log.info "fileLocation: " + fileLocation
+ log.info "inputFileResponse: " + inputFileResponse
+// Writing soapUI response to the file
+ inputFileResponse.write(context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value)
+
+// create an XmlHolder
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+// get the response as string
+def responseAsString = context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value    
+def holderResponse = groovyUtils.getXmlHolder(responseAsString)
+// define namespace
+holderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
+
+// get the node value
+epicStoryCount = holderResponse.getNodeValues("//xmlns:Response/xmlns:total")
+epicName = holderResponse.getNodeValue("//xmlns:issues[1]/xmlns:e[1]/xmlns:fields[1]/xmlns:customfield_10931[1]")
+
+log.info "Epic '" + epicName + "' has '" + epicStoryCount + "' stories"
+
+//Write response to Excel;
+Workbook workbookRead = Workbook.getWorkbook(new File(fileLocation + "output_v2.xls"))
+log.info "Workbook: " + fileLocation + "output_v2.xls"
+WritableWorkbook workbook = Workbook.createWorkbook(new File(fileLocation + "output_v2.xls"), workbookRead)
+
+Sheet sheet = workbook.getSheet(0)
+//WritableSheet sheet = workbook.createSheet(epicName,0 )
+log.info "rowCount: " + rowCount
+//log.info(sheet.isHidden())
+
+
+// loop item nodes in response message
+i=rowCount;
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:key" )){
+log.info "Key : [$item]"
+Label label = new Label(0, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=rowCount
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:summary[1]" )){
+//log.info "Summary : [$item]"
+Label label = new Label(1, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=rowCount
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:status[1]/xmlns:name[1]" )){
+//log.info "Status : [$item]"
+Label label = new Label(2, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=rowCount
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:customfield_10065[1]/xmlns:value[1]" )){
+//log.info "Severity : [$item]"
+Label label = new Label(3, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+
+i=rowCount
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:issuetype[1]/xmlns:name[1]" )){
+//log.info "Type : [$item]"
+Label label = new Label(4, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=rowCount
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:project[1]/xmlns:key[1]" )){
+//log.info "Project : [$item]"
+Label label = new Label(5, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=rowCount
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:customfield_10630[1]" )){
+//log.info "Points : [$item]"
+//log.info "rowCount : " + i.toString()
+//String sPoints = item.substring(0, item.indexOf('.'))
+//sPoints = Integer.parseInt(item)
+//Label label = new Label(5, i, sPoints); //column=0=A,row=0=1
+Label label = new Label(6, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+Label label1 = new Label(7, i, epicName); //column=0=A,row=0=1
+sheet.addCell(label1);
+
+i++;
+}
+
+//Close excel
+workbook.write()
+workbook.close()
+}
+ 
+ 
+if (endLoop.toString() == "T" || endLoop.toString()=="True" || endLoop.toString()=="true")
+{
+ log.info ("Exit Groovy Data Source Looper")
+ testRunner.cancel( "time to go home" )
+return null
+}
+else
+{
+ propTestStep.setPropertyValue("rowCount", i.toString())	
+ testRunner.gotoStepByName("Groovy Script - DataSource") //setStartStep
+ log.info "Goto Groovy Script - DataSource"
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="Copy of Groovy Script – Data Loop" disabled="true" id="a2b52ce3-8b8d-4183-870b-847c916221a6"><con:settings/><con:config><script>/*&lt;/pre>
+@Author : Pradeep Bishnoi
+@Description : Data Source Looper responsible for looping a specific teststep.
+@GroovyTestStepName : "Groovy Script - Data Loop"
+*/
+//import necessary libs
+import jxl.*
+import jxl.write.*
+import com.eviware.soapui.support.XmlHolder
+
+def myTestCase = context.testCase
+log.info myTestCase.getLabel()
+log.info myTestCase.getParent().getLabel()
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+def endLoop = propTestStep.getPropertyValue("StopLoop").toString()
+log.info endLoop
+def runner
+//Define the object for the collection of requests in the soapUI test case
+def restTestStep = myTestCase.getTestStepByName("REST Get Epic Children") // get the Property TestStep
+log.info restTestStep.name
+
+
+//Groovy Script to loop through each requests in the test case.
+restTestStep.each{
+ //Creating file name using current date and time
+ Date startTime = new Date();
+ def cur_Time = startTime.getMonth() + "_" + startTime.getDate();
+ cur_Time = cur_Time + "_" + startTime.getHours() + startTime.getMinutes() +startTime.getSeconds()
+ def fileName = it.name + "_" + propTestStep.getPropertyValue("Value").toString()
+ int count_number = Integer.parseInt( propTestStep.getPropertyValue("Count"))
+ log.info "Count: " + count_number
+ def inputFileResponse = new File("D:\\Temp\\JIRA\\"+ "Response_" + fileName+".xml")
+//Writing soapUI response to the file
+ inputFileResponse.write(context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value)
+
+// create an XmlHolder
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+// get the response as string
+def responseAsString = context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value    
+log.info responseAsString
+def holderResponse = groovyUtils.getXmlHolder(responseAsString)
+// define namespace
+holderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
+
+// get the node value
+def nodeValue = holderResponse.getNodeValue("//xmlns:maxResults[1]")
+log.info "Story count: " + nodeValue
+def epicName = holderResponse.getNodeValue("//xmlns:issues[1]/xmlns:e[1]/xmlns:fields[1]/xmlns:customfield_10931[1]")
+log.info "Epicsname: " + epicName
+
+//Write response to Excel;
+WritableWorkbook workbook = Workbook.createWorkbook(new File("D:\\Temp\\JIRA\\output.xls"))
+WritableSheet sheet = workbook.createSheet(epicName,count_number )
+ log.info "Count: " + count_number
+log.info(sheet.isHidden())
+
+
+// loop item nodes in response message
+i=0;
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:key" )){
+log.info "Key : [$item]"
+Label label = new Label(0, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:summary[1]" )){
+log.info "Summary : [$item]"
+Label label = new Label(1, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:status[1]/xmlns:name[1]" )){
+log.info "Status : [$item]"
+Label label = new Label(2, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:issuetype[1]/xmlns:name[1]" )){
+log.info "Type : [$item]"
+Label label = new Label(3, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:customfield_10630[1]" )){
+log.info "Points : [$item]"
+Label label = new Label(4, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+
+
+//Label label1 = new Label(2, 2, "Column C, Row 3");
+//sheet.addCell(label1);
+workbook.write()
+workbook.close()
+
+}
+ 
+ 
+if (endLoop.toString() == "T" || endLoop.toString()=="True" || endLoop.toString()=="true")
+{
+ log.info ("Exit Groovy Data Source Looper")
+ assert true
+}
+else
+{
+ testRunner.gotoStepByName("Groovy Script - DataSource") //setStartStep
+ log.info "Goto Groovy Script - DataSource"
+}
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Looping v3.1" searchProperties="true" id="6e8e2ecf-fdb1-4866-b72a-7041dab253b9"><con:settings/><con:testStep type="groovy" name="Setup Loop" disabled="true" id="1f7153e4-c36c-447e-9457-33853297e86c"><con:settings/><con:config><script>import javax.naming.Context
 
 def myTestCase = context.testCase
 
@@ -783,7 +1204,7 @@ propTestStep.setPropertyValue("StopLoop", "F")
 else
 {
 propTestStep.setPropertyValue("StopLoop", "F")
-}</script></con:config></con:testStep><con:testStep type="properties" name="Property – Looper" id="cd4c515e-5c43-43b0-a9c8-16e81af6579c"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Total</con:name><con:value>17</con:value></con:property><con:property><con:name>Value</con:name><con:value>DESIGN-520</con:value></con:property><con:property><con:name>Count</con:name><con:value>0</con:value></con:property><con:property><con:name>Next</con:name><con:value>1</con:value></con:property><con:property><con:name>StopLoop</con:name><con:value>T</con:value></con:property><con:property><con:name>rowCount</con:name><con:value>121</con:value></con:property><con:property><con:name>Epics</con:name><con:value>[DESIGN-624, DESIGN-615, DESIGN-586, DESIGN-577, DESIGN-572, DESIGN-567, DESIGN-566, DESIGN-556, DESIGN-550, DESIGN-547, DESIGN-542, DESIGN-540, DESIGN-538, DESIGN-537, DESIGN-531, DESIGN-522, DESIGN-520]</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Get Epic Children" disabled="true" id="525299d2-90a6-41ea-bce5-df0663b05185"><con:settings/><con:config><script>myInterface = testRunner.testCase.testSuite.project.getInterfaceByName("https://jira.eurodir.eu/jira/rest/api/2/")
+}</script></con:config></con:testStep><con:testStep type="properties" name="Property – Looper" id="cd4c515e-5c43-43b0-a9c8-16e81af6579c"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Total</con:name><con:value>10</con:value></con:property><con:property><con:name>Value</con:name><con:value>DESIGN-684</con:value></con:property><con:property><con:name>Count</con:name><con:value>4</con:value></con:property><con:property><con:name>Next</con:name><con:value>5</con:value></con:property><con:property><con:name>StopLoop</con:name><con:value>F</con:value></con:property><con:property><con:name>rowCount</con:name><con:value>43</con:value></con:property><con:property><con:name>Epics</con:name><con:value>[DESIGN-700, DESIGN-699, DESIGN-698, DESIGN-684, DESIGN-681, DESIGN-677, DESIGN-673, DESIGN-672, DESIGN-586, DESIGN-545]</con:value></con:property><con:property><con:name>fileLocation</con:name><con:value>D:\\Temp\\JIRA\\</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Get Epic Children" disabled="true" id="525299d2-90a6-41ea-bce5-df0663b05185"><con:settings/><con:config><script>myInterface = testRunner.testCase.testSuite.project.getInterfaceByName("https://jira.eurodir.eu/jira/rest/api/2/")
 myOperation = myInterface.getOperationByName("search")
 myRequest = myOperation.getRequestByName("?jql=cf[10931]=DESIGN-26")
 // get the context
@@ -855,7 +1276,10 @@ restTestStep.each{
  def fileName = it.name + "_" + propTestStep.getPropertyValue("Value").toString()
  int rowCount = Integer.parseInt( propTestStep.getPropertyValue("rowCount"))
  log.info "rowCount: " + rowCount
- def inputFileResponse = new File("D:\\Temp\\JIRA\\"+ "Response_" + fileName+".xml")
+ def fileLocation =  propTestStep.getPropertyValue("fileLocation")
+ def inputFileResponse = new File(fileLocation + "Response_" + fileName+".xml")
+ log.info "fileLocation: " + fileLocation
+ log.info "inputFileResponse: " + inputFileResponse
 // Writing soapUI response to the file
  inputFileResponse.write(context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value)
 
@@ -868,78 +1292,86 @@ def holderResponse = groovyUtils.getXmlHolder(responseAsString)
 holderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
 
 // get the node value
-epicStoryCount = holderResponse.getNodeValues("//xmlns:Response/xmlns:total")
+epicStoryCount = holderResponse.getNodeValue("//xmlns:Response/xmlns:total")
 epicName = holderResponse.getNodeValue("//xmlns:issues[1]/xmlns:e[1]/xmlns:fields[1]/xmlns:customfield_10931[1]")
 
 log.info "Epic '" + epicName + "' has '" + epicStoryCount + "' stories"
+log.info "Workbook: " + fileLocation + "output_v2.xls"
+i=rowCount;
+
+if (epicStoryCount.toInteger() > 0) { //Check whether there are stories in the epic
 
 //Write response to Excel;
-Workbook workbookRead = Workbook.getWorkbook(new File("D:\\Temp\\JIRA\\output_v2.xls"))
-WritableWorkbook workbook = Workbook.createWorkbook(new File("D:\\Temp\\JIRA\\output_v2.xls"), workbookRead)
+Workbook workbookRead = Workbook.getWorkbook(new File(fileLocation + "output_v2.xls"))
+WritableWorkbook workbook = Workbook.createWorkbook(new File(fileLocation + "output_v2.xls"), workbookRead)
 
 Sheet sheet = workbook.getSheet(0)
 //WritableSheet sheet = workbook.createSheet(epicName,0 )
 log.info "rowCount: " + rowCount
-//log.info(sheet.isHidden())
-
 
 // loop item nodes in response message
-i=rowCount;
-for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:key" )){
-//log.info "Key : [$item]"
-Label label = new Label(0, i, item); //column=0=A,row=0=1
-sheet.addCell(label);
-i++;
-}
-i=rowCount
-for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:summary[1]" )){
-//log.info "Summary : [$item]"
-Label label = new Label(1, i, item); //column=0=A,row=0=1
-sheet.addCell(label);
-i++;
-}
-i=rowCount
-for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:status[1]/xmlns:name[1]" )){
-//log.info "Status : [$item]"
-Label label = new Label(2, i, item); //column=0=A,row=0=1
-sheet.addCell(label);
-i++;
-}
-i=rowCount
-for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:issuetype[1]/xmlns:name[1]" )){
-//log.info "Type : [$item]"
-Label label = new Label(3, i, item); //column=0=A,row=0=1
-sheet.addCell(label);
-i++;
-}
-i=rowCount
-for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:project[1]/xmlns:key[1]" )){
-//log.info "Project : [$item]"
-Label label = new Label(4, i, item); //column=0=A,row=0=1
-sheet.addCell(label);
-i++;
-}
-i=rowCount
-for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:customfield_10630[1]" )){
-//log.info "Points : [$item]"
-//log.info "rowCount : " + i.toString()
-//String sPoints = item.substring(0, item.indexOf('.'))
-//sPoints = Integer.parseInt(item)
-//Label label = new Label(5, i, sPoints); //column=0=A,row=0=1
-Label label = new Label(5, i, item); //column=0=A,row=0=1
-sheet.addCell(label);
-Label label1 = new Label(6, i, epicName); //column=0=A,row=0=1
-sheet.addCell(label1);
 
+n=1
+for( item in holderResponse.getNodeValues( "//xmlns:Response/xmlns:issues/xmlns:e" )){
+
+//Key 
+keyNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:key/text()"	
+log.info keyNode
+Label keyLabel = new Label(0, i, holderResponse.getNodeValue(keyNode));
+sheet.addCell(keyLabel);
+
+//Summary
+summaryNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:summary/text()"
+log.info summaryNode
+Label summaryLabel = new Label(1, i, holderResponse.getDomNode(summaryNode).nodeValue);
+sheet.addCell(summaryLabel);
+ 
+//Status
+statusNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:status/xmlns:name/text()"
+log.info statusNode
+Label statusLabel = new Label(2, i, holderResponse.getDomNode(statusNode).nodeValue);
+sheet.addCell(statusLabel);
+
+//Severity
+severityNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:customfield_10065/xmlns:value/text()"
+log.info severityNode
+Label severityLabel = new Label(3, i, holderResponse.getDomNode(severityNode).nodeValue);
+sheet.addCell(severityLabel);
+
+//Type
+typeNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:issuetype/xmlns:name/text()"
+log.info typeNode
+Label typeLabel = new Label(4, i, holderResponse.getDomNode(typeNode).nodeValue);
+sheet.addCell(typeLabel);
+
+//Project
+projectNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:project/xmlns:key/text()"
+log.info projectNode
+Label projectLabel = new Label(5, i, holderResponse.getDomNode(projectNode).nodeValue);
+sheet.addCell(projectLabel);
+
+//Points
+/*
+pointsNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + i.toString() + "]/xmlns:fields/xmlns:customfield_10630/text()"
+log.info pointsNode
+//def points = holderResponse.getDomNode(pointsNode).nodeValue
+//log.info "Status :" points
+Label pointsLabel = new Label(6, i, holderResponse.getDomNode(pointsNode).nodeValue);
+sheet.addCell(pointsLabel);
+*/
+
+//EpicName
+Label epicLabel = new Label(6, i, epicName);
+sheet.addCell(epicLabel);
 i++;
+n++;
 }
 
 //Close excel
 workbook.write()
 workbook.close()
 }
- 
- 
+}
 if (endLoop.toString() == "T" || endLoop.toString()=="True" || endLoop.toString()=="true")
 {
  log.info ("Exit Groovy Data Source Looper")
@@ -1066,4 +1498,403 @@ else
  testRunner.gotoStepByName("Groovy Script - DataSource") //setStartStep
  log.info "Goto Groovy Script - DataSource"
 }
-</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>EpicValue</con:name><con:value>DESIGN-520</con:value></con:property><con:property><con:name>BRMValue</con:name><con:value>BR 8</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Looping v3.2" searchProperties="true" id="4567e7f7-e5cd-49cb-80e3-f2ffa974a449"><con:settings/><con:testStep type="groovy" name="Setup Loop" disabled="true" id="6db30b65-77af-436f-931f-003801752b85"><con:settings/><con:config><script>import javax.naming.Context
+
+def myTestCase = context.testCase
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+propTestStep.setPropertyValue("Total", "")
+propTestStep.setPropertyValue("Value", "")
+propTestStep.setPropertyValue("Count", "0")
+propTestStep.setPropertyValue("Next", "0")
+propTestStep.setPropertyValue("Stoploop", "F")
+propTestStep.setPropertyValue("rowCount", "1")
+propTestStep.setPropertyValue("Epics", "")
+
+</script></con:config></con:testStep><con:testStep type="restrequest" name="Get_Epics" id="d243c86c-817a-4012-8c34-a9edc123cdd2"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get_Epics" mediaType="application/json" id="89c37aff-8593-431f-b89a-4461e8a1fd27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="project='DESIGN'&amp;fixVersion='BR 10'&amp;issuetype in ('Epic', 'story')" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Epic Property Transfer" disabled="true" id="3fb6aba1-b47e-41ce-820c-93cfb601c7f3"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EpicList</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get_Epics</con:sourceStep><con:sourcePath>//Reponse/issues/e/key</con:sourcePath><con:targetType>Epics</con:targetType><con:targetStep>Property – Looper</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Transfer Epics" id="005c58af-a880-4849-8897-ca78e0dc9560"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+import javax.naming.Context
+
+
+def myTestCase = context.testCase
+log.info "Testcase: " + myTestCase.getLabel()
+log.info "Testsuite: " + myTestCase.getParent().getLabel()
+
+// create an XmlHolder
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+// get the response as string
+def epicResponseAsString = context.testCase.getTestStepByName("Get_Epics").getProperty("ResponseAsXml").value  
+def epicHolderResponse = groovyUtils.getXmlHolder(epicResponseAsString)
+log.info epicResponseAsString
+// define namespace
+epicHolderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
+
+// get the node value
+epicStories = epicHolderResponse.getNodeValues("//xmlns:Response/xmlns:issues/xmlns:e/xmlns:key")
+log.info epicStories[0]
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+propTestStep.setPropertyValue("Epics", epicStories.toString())
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script – DataSource" id="a80980e5-06e4-4fc6-8f06-2cbfa22d071f"><con:settings/><con:config><script>/*
+@Author : Pradeep Bishnoi
+@Description : Data Source to read .txt file and pass the value to corresponding property.
+@GroovyTestStepName : "Groovy Script - DataSource"
+*/
+ 
+import com.eviware.soapui.support.XmlHolder
+import javax.naming.Context
+
+def myTestCase = context.testCase
+def counter,next,previous,size
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+/*
+File tickerEnumFile = new File("D:/Temp/JIRA/Input.txt") //make sure input.txt file already exists and contains different set of values sepearted by new line (CR).
+List lines = tickerEnumFile.readLines()
+*/
+
+
+
+//List lines = propTestStep.getPropertyValue("Epics").split(",")
+def fullList = []
+fullListStr = propTestStep.getPropertyValue("Epics")
+if (fullListStr != null &amp;&amp; fullListStr != "")
+{
+    //cast string to string list:
+        //  break up the fullMediaNameList at commas, and itterate over the parts
+        fullListStr.tokenize(',[]').each {
+        // trim off leading or trailing whitespace from each part, and append as new element to the array
+    fullList &lt;&lt; it.trim()
+        }
+}
+
+size = fullList.size.toInteger()
+log.info "Amount of Epics in BRM: " + size.toString()
+
+propTestStep.setPropertyValue("Total", size.toString())
+counter = propTestStep.getPropertyValue("Count").toString()
+log.info "counter: " + counter
+counter= counter.toInteger()
+next = (counter > size-2? 0: counter+1)
+tempValue = fullList[counter]
+propTestStep.setPropertyValue("Value", tempValue)
+propTestStep.setPropertyValue("Count", next.toString())
+next++
+log.info "Reading line : ${(counter+1)} / $fullList.size"
+propTestStep.setPropertyValue("Next", next.toString())
+log.info "Value '$tempValue' -- updated in $propTestStep.name"
+if (counter == size-1)
+{
+propTestStep.setPropertyValue("StopLoop", "T")
+log.info "Setting the stoploop property now..."
+}
+else if (counter==0)
+{
+def runner = new com.eviware.soapui.impl.wsdl.testcase.WsdlTestCaseRunner(testRunner.testCase, null)
+propTestStep.setPropertyValue("StopLoop", "F")
+}
+else
+{
+propTestStep.setPropertyValue("StopLoop", "F")
+}</script></con:config></con:testStep><con:testStep type="properties" name="Property – Looper" id="2a307886-a3cb-4536-a4a1-160a0c20bfa2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>Total</con:name><con:value>16</con:value></con:property><con:property><con:name>Value</con:name><con:value>DESIGN-545</con:value></con:property><con:property><con:name>Count</con:name><con:value>0</con:value></con:property><con:property><con:name>Next</con:name><con:value>1</con:value></con:property><con:property><con:name>StopLoop</con:name><con:value>T</con:value></con:property><con:property><con:name>rowCount</con:name><con:value>71</con:value></con:property><con:property><con:name>Epics</con:name><con:value>[DESIGN-700, DESIGN-698, DESIGN-695, DESIGN-692, DESIGN-687, DESIGN-686, DESIGN-684, DESIGN-680, DESIGN-673, DESIGN-662, DESIGN-647, DESIGN-646, DESIGN-645, DESIGN-644, DESIGN-546, DESIGN-545]</con:value></con:property><con:property><con:name>fileLocation</con:name><con:value>D:\\Temp\\JIRA\\</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Get Epic Children" disabled="true" id="53db7ed1-18c7-4cb8-895b-70be867785dd"><con:settings/><con:config><script>myInterface = testRunner.testCase.testSuite.project.getInterfaceByName("https://jira.eurodir.eu/jira/rest/api/2/")
+myOperation = myInterface.getOperationByName("search")
+myRequest = myOperation.getRequestByName("?jql=cf[10931]=DESIGN-26")
+// get the context
+def context = testRunner.getRunContext()
+// send the request synchronous
+def submitted = myRequest.submit(context,false)
+// get the response
+def response = submitted.getResponse()
+// get the response content as string 
+def content = response.getContentAsString()
+// i.e check that the response contains literal 'OK'
+assert content.contains('OK'),"Response not contains OK literal"</script></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="d86de36f-f6b2-4e0f-b5aa-4229df7f7f78"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="true" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>EpicValue</con:name><con:sourceType>Value</con:sourceType><con:sourceStep>Property – Looper</con:sourceStep><con:targetType>EpicValue</con:targetType><con:targetStep>#TestSuite#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="REST Get Epic Children" id="3a74a18d-0d0c-4b70-b7c4-90de9a2c94ad"><con:settings/><con:config service="https://jira.eurodir.eu" resourcePath="/jira/rest/api/2/search" methodName="Search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Get Epic Children" mediaType="application/json" id="27b25b30-2d45-48a4-b635-9572ed6226d2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jira.eurodir.eu</con:endpoint><con:request/><con:originalUri>https://jira.eurodir.eu/jira/rest/api/2/search</con:originalUri><con:credentials><con:username>mdiest</con:username><con:password>B1lderdijk@26</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="jql" value="cf[10931]=${#TestSuite#EpicValue}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>jql</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Read REST Response" disabled="true" id="b9905c09-245c-4309-9cf9-7430cca0555b"><con:settings/><con:config><script>/*
+@Author: Pradeep Bishnoi
+@Description : To read the REST response and iterate node using Xpath
+*/
+log.info "Start"
+//def testStepName = messageExchange.modelItem.testStep.name   //to get the Test Step Name
+def xmlHold = messageExchange.responseContentAsXml.toString()  //to store the response as Xml string
+log.info "xmlHold: " xmlHold
+/*
+ 
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context )
+def holder = groovyUtils.getXmlHolder (xmlHold)
+log.info holder.getXml()  // will display /Log the response in Xml
+count  = holder.getNodeValue(“count(//Response/e)”)
+count = count.toInteger() + 1  //converting count into Integer &amp; adding 1 for looping purpose
+def xPath = “//Response/issues"
+
+/*
+for (i in 1..&lt;count)
+{
+xPath1 = xPath + i + "]/Name”  // Name value
+xPath2 = xPath + i + “]/EmailAddresses/e”   //email Node value
+log.info holder.getNodeValue(xPath1)
+log.info holder.getNodeValue(xPath2)
+i++
+}
+*/
+//log.info xPath
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script – Data Loop" id="d7294540-0bf6-4a15-8075-2cb220b20a82"><con:settings/><con:config><script>/*&lt;/pre>
+@Author : Pradeep Bishnoi
+@Description : Data Source Looper responsible for looping a specific teststep.
+@GroovyTestStepName : "Groovy Script - Data Loop"
+*/
+//import necessary libs
+import jxl.*
+import jxl.write.*
+import com.eviware.soapui.support.XmlHolder
+
+def myTestCase = context.testCase
+log.info "Testcase: " + myTestCase.getLabel()
+log.info "Testsuite: " + myTestCase.getParent().getLabel()
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+def endLoop = propTestStep.getPropertyValue("StopLoop").toString()
+log.info "End loop: " + endLoop.toString()
+def runner
+//Define the object for the collection of requests in the soapUI test case
+def restTestStep = myTestCase.getTestStepByName("REST Get Epic Children") // get the Property TestStep
+log.info restTestStep.name
+
+
+// Groovy Script to loop through each requests in the test case.
+restTestStep.each{
+ // Creating file name using current date and time
+ Date startTime = new Date();
+ def cur_Time = startTime.getMonth() + "_" + startTime.getDate();
+ cur_Time = cur_Time + "_" + startTime.getHours() + startTime.getMinutes() +startTime.getSeconds()
+ def fileName = it.name + "_" + propTestStep.getPropertyValue("Value").toString()
+ int rowCount = Integer.parseInt( propTestStep.getPropertyValue("rowCount"))
+ log.info "rowCount: " + rowCount
+ def fileLocation =  propTestStep.getPropertyValue("fileLocation")
+ def inputFileResponse = new File(fileLocation + "Response_" + fileName+".xml")
+ log.info "fileLocation: " + fileLocation
+ log.info "inputFileResponse: " + inputFileResponse
+// Writing soapUI response to the file
+ inputFileResponse.write(context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value)
+
+// create an XmlHolder
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+// get the response as string
+def responseAsString = context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value    
+def holderResponse = groovyUtils.getXmlHolder(responseAsString)
+// define namespace
+holderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
+
+// get the node value
+epicStoryCount = holderResponse.getNodeValue("//xmlns:Response/xmlns:total")
+epicName = holderResponse.getNodeValue("//xmlns:issues[1]/xmlns:e[1]/xmlns:fields[1]/xmlns:customfield_10931[1]")
+
+log.info "Epic '" + epicName + "' has '" + epicStoryCount + "' stories"
+log.info "Workbook: " + fileLocation + "output_br10.xls"
+i=rowCount;
+
+if (epicStoryCount.toInteger() > 0) { //Check whether there are stories in the epic
+
+//Write response to Excel;
+Workbook workbookRead = Workbook.getWorkbook(new File(fileLocation + "output_br10.xls"))
+WritableWorkbook workbook = Workbook.createWorkbook(new File(fileLocation + "output_br10.xls"), workbookRead)
+
+Sheet sheet = workbook.getSheet(0)
+//WritableSheet sheet = workbook.createSheet(epicName,0 )
+log.info "rowCount: " + rowCount
+
+// loop item nodes in response message
+
+n=1
+for( item in holderResponse.getNodeValues( "//xmlns:Response/xmlns:issues/xmlns:e" )){
+
+//Key 
+keyNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:key/text()"	
+log.info keyNode
+Label keyLabel = new Label(0, i, holderResponse.getNodeValue(keyNode));
+sheet.addCell(keyLabel);
+
+//Summary
+summaryNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:summary/text()"
+log.info summaryNode
+Label summaryLabel = new Label(1, i, holderResponse.getDomNode(summaryNode).nodeValue);
+sheet.addCell(summaryLabel);
+ 
+//Status
+statusNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:status/xmlns:name/text()"
+log.info statusNode
+Label statusLabel = new Label(2, i, holderResponse.getDomNode(statusNode).nodeValue);
+sheet.addCell(statusLabel);
+
+//Severity
+severityNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:customfield_10065/xmlns:value/text()"
+log.info severityNode
+Label severityLabel = new Label(3, i, holderResponse.getDomNode(severityNode).nodeValue);
+sheet.addCell(severityLabel);
+
+//Type
+typeNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:issuetype/xmlns:name/text()"
+log.info typeNode
+Label typeLabel = new Label(4, i, holderResponse.getDomNode(typeNode).nodeValue);
+sheet.addCell(typeLabel);
+
+//Project
+projectNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:project/xmlns:key/text()"
+log.info projectNode
+Label projectLabel = new Label(5, i, holderResponse.getDomNode(projectNode).nodeValue);
+sheet.addCell(projectLabel);
+
+
+//Creation Date
+createdNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + n.toString() + "]/xmlns:fields/xmlns:created[1]/text()"
+log.info createdNode
+Label createdLabel = new Label(6, i, holderResponse.getDomNode(createdNode).nodeValue);
+//def newdate = new Date().parse("d/M/yyyy H:m:s", createdLabel.toString())
+//log.info newdate.toString()
+sheet.addCell(createdLabel);
+
+//Points
+/*
+pointsNode = "//xmlns:Response/xmlns:issues/xmlns:e[" + i.toString() + "]/xmlns:fields/xmlns:customfield_10630/text()"
+log.info pointsNode
+//def points = holderResponse.getDomNode(pointsNode).nodeValue
+//log.info "Status :" points
+Label pointsLabel = new Label(6, i, holderResponse.getDomNode(pointsNode).nodeValue);
+sheet.addCell(pointsLabel);
+*/
+
+//EpicName
+Label epicLabel = new Label(7, i, epicName);
+sheet.addCell(epicLabel);
+i++;
+n++;
+}
+
+//Close excel
+workbook.write()
+workbook.close()
+}
+}
+if (endLoop.toString() == "T" || endLoop.toString()=="True" || endLoop.toString()=="true")
+{
+ log.info ("Exit Groovy Data Source Looper")
+ testRunner.cancel( "time to go home" )
+return null
+}
+else
+{
+ propTestStep.setPropertyValue("rowCount", i.toString())	
+ testRunner.gotoStepByName("Groovy Script - DataSource") //setStartStep
+ log.info "Goto Groovy Script - DataSource"
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="Copy of Groovy Script – Data Loop" disabled="true" id="18fb1205-5ce9-4a08-91d5-ab1959d7f9c4"><con:settings/><con:config><script>/*&lt;/pre>
+@Author : Pradeep Bishnoi
+@Description : Data Source Looper responsible for looping a specific teststep.
+@GroovyTestStepName : "Groovy Script - Data Loop"
+*/
+//import necessary libs
+import jxl.*
+import jxl.write.*
+import com.eviware.soapui.support.XmlHolder
+
+def myTestCase = context.testCase
+log.info myTestCase.getLabel()
+log.info myTestCase.getParent().getLabel()
+
+def propTestStep = myTestCase.getTestStepByName("Property – Looper") // get the Property TestStep
+def endLoop = propTestStep.getPropertyValue("StopLoop").toString()
+log.info endLoop
+def runner
+//Define the object for the collection of requests in the soapUI test case
+def restTestStep = myTestCase.getTestStepByName("REST Get Epic Children") // get the Property TestStep
+log.info restTestStep.name
+
+
+//Groovy Script to loop through each requests in the test case.
+restTestStep.each{
+ //Creating file name using current date and time
+ Date startTime = new Date();
+ def cur_Time = startTime.getMonth() + "_" + startTime.getDate();
+ cur_Time = cur_Time + "_" + startTime.getHours() + startTime.getMinutes() +startTime.getSeconds()
+ def fileName = it.name + "_" + propTestStep.getPropertyValue("Value").toString()
+ int count_number = Integer.parseInt( propTestStep.getPropertyValue("Count"))
+ log.info "Count: " + count_number
+ def inputFileResponse = new File("D:\\Temp\\JIRA\\"+ "Response_" + fileName+".xml")
+//Writing soapUI response to the file
+ inputFileResponse.write(context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value)
+
+// create an XmlHolder
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+// get the response as string
+def responseAsString = context.testCase.getTestStepByName(it.name).getProperty("ResponseAsXml").value    
+log.info responseAsString
+def holderResponse = groovyUtils.getXmlHolder(responseAsString)
+// define namespace
+holderResponse.namespaces["xmlns"] = "https://jira.eurodir.eu/jira/rest/api/2/search"
+
+// get the node value
+def nodeValue = holderResponse.getNodeValue("//xmlns:maxResults[1]")
+log.info "Story count: " + nodeValue
+def epicName = holderResponse.getNodeValue("//xmlns:issues[1]/xmlns:e[1]/xmlns:fields[1]/xmlns:customfield_10931[1]")
+log.info "Epicsname: " + epicName
+
+//Write response to Excel;
+WritableWorkbook workbook = Workbook.createWorkbook(new File("D:\\Temp\\JIRA\\output.xls"))
+WritableSheet sheet = workbook.createSheet(epicName,count_number )
+ log.info "Count: " + count_number
+log.info(sheet.isHidden())
+
+
+// loop item nodes in response message
+i=0;
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:key" )){
+log.info "Key : [$item]"
+Label label = new Label(0, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:summary[1]" )){
+log.info "Summary : [$item]"
+Label label = new Label(1, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:status[1]/xmlns:name[1]" )){
+log.info "Status : [$item]"
+Label label = new Label(2, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:issuetype[1]/xmlns:name[1]" )){
+log.info "Type : [$item]"
+Label label = new Label(3, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+i=0
+for( item in holderResponse.getNodeValues( "//xmlns:issues/xmlns:e/xmlns:fields[1]/xmlns:customfield_10630[1]" )){
+log.info "Points : [$item]"
+Label label = new Label(4, i, item); //column=0=A,row=0=1
+sheet.addCell(label);
+i++;
+}
+
+
+//Label label1 = new Label(2, 2, "Column C, Row 3");
+//sheet.addCell(label1);
+workbook.write()
+workbook.close()
+
+}
+ 
+ 
+if (endLoop.toString() == "T" || endLoop.toString()=="True" || endLoop.toString()=="true")
+{
+ log.info ("Exit Groovy Data Source Looper")
+ assert true
+}
+else
+{
+ testRunner.gotoStepByName("Groovy Script - DataSource") //setStartStep
+ log.info "Goto Groovy Script - DataSource"
+}
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>EpicValue</con:name><con:value>DESIGN-545</con:value></con:property><con:property><con:name>BRMValue</con:name><con:value>BR 10</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
